@@ -5334,8 +5334,14 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
 let toastTimer;
 function showToast(msg, type='', subtype='') {
   const t=document.getElementById('toast');
+  if (!t) {
+    console.error('Toast element not found');
+    return;
+  }
   t.textContent=msg;
-  t.className=`toast ${type==='error'?'error':subtype==='info'?'info':''} show`;
+  // Handle both old and new calling patterns
+  const toastType = type === 'error' ? 'error' : (type === 'info' || subtype === 'info') ? 'info' : '';
+  t.className=`toast ${toastType} show`;
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
 }
@@ -5934,87 +5940,7 @@ function toggleKr(gid, krid) {
 }
 function deleteGoal(id) { if(confirm('Delete this goal?')) { goals = goals.filter(x=>x.id!==id); saveAll(); renderGoals(); } }
 // --- Phase 6: Auto-Deconstruction Engine ---
-function autoDeconstruct(goalId) {
-  const g = goals.find(x => x.id === goalId);
-  if (!g) return;
-  
-  // 1. Move to Draft State (Strip dates and append tag)
-  if (!g.title.includes('[Draft]')) {
-    g.title = "[Draft] " + g.title;
-  }
-  g.startDate = ''; 
-  g.endDate = '';
-  g.allocatedDays = [];
-  
-  // 2. Save and visually update the UI
-  saveAll();
-  renderAnalytics(); 
-  
-  // 3. Route the user and force the breakdown
-  showToast('Goal moved to Drafts. Please extract a smaller step.', 'info');
-  
-  // Switch to the Goals tab automatically
-  switchView('goals');
-  
-  // Delay slightly to allow UI transition, then open the cascade modal
-  setTimeout(() => {
-    cascadeDown(goalId);
-  }, 400);
-}// --- Phase 6: Auto-Deconstruction Engine ---
-function autoDeconstruct(goalId) {
-  const g = goals.find(x => x.id === goalId);
-  if (!g) return;
-  
-  // 1. Move to Draft State (Strip dates and append tag)
-  if (!g.title.includes('[Draft]')) {
-    g.title = "[Draft] " + g.title;
-  }
-  g.startDate = ''; 
-  g.endDate = '';
-  g.allocatedDays = [];
-  
-  // 2. Save and visually update the UI
-  saveAll();
-  renderAnalytics(); 
-  
-  // 3. Route the user and force the breakdown
-  showToast('Goal moved to Drafts. Please extract a smaller step.', 'info');
-  
-  // Switch to the Goals tab automatically
-  switchView('goals');
-  
-  // Delay slightly to allow UI transition, then open the cascade modal
-  setTimeout(() => {
-    cascadeDown(goalId);
-  }, 400);
-}// --- Phase 6: Auto-Deconstruction Engine ---
-function autoDeconstruct(goalId) {
-  const g = goals.find(x => x.id === goalId);
-  if (!g) return;
-  
-  // 1. Move to Draft State (Strip dates and append tag)
-  if (!g.title.includes('[Draft]')) {
-    g.title = "[Draft] " + g.title;
-  }
-  g.startDate = ''; 
-  g.endDate = '';
-  g.allocatedDays = [];
-  
-  // 2. Save and visually update the UI
-  saveAll();
-  renderAnalytics(); 
-  
-  // 3. Route the user and force the breakdown
-  showToast('Goal moved to Drafts. Please extract a smaller step.', 'info');
-  
-  // Switch to the Goals tab automatically
-  switchView('goals');
-  
-  // Delay slightly to allow UI transition, then open the cascade modal
-  setTimeout(() => {
-    cascadeDown(goalId);
-  }, 400);
-}// --- Phase 6: Auto-Deconstruction Engine ---
+// --- Phase 6: Auto-Deconstruction Engine ---
 function autoDeconstruct(goalId) {
   const g = goals.find(x => x.id === goalId);
   if (!g) return;
@@ -6682,7 +6608,33 @@ if (todayEnergy) {
   initParticles(); // <--- Moved INSIDE the init() bracket
 }
 
+// ══════════════════════════════════════════════════════════════
+// CLEANUP & MEMORY LEAK PREVENTION
+// ══════════════════════════════════════════════════════════════
+function cleanup() {
+  // Cancel animation frames
+  if (typeof pAnimId !== 'undefined' && pAnimId) {
+    cancelAnimationFrame(pAnimId);
+  }
+  
+  // Clear timers
+  if (typeof saveTimer !== 'undefined') {
+    clearTimeout(saveTimer);
+  }
+  if (typeof toastTimer !== 'undefined') {
+    clearTimeout(toastTimer);
+  }
+  if (typeof resizeTimer !== 'undefined') {
+    clearTimeout(resizeTimer);
+  }
+  
+  console.log('✅ Zenith cleanup completed');
+}
+
+// Register cleanup on page unload
+window.addEventListener('beforeunload', cleanup);
+
 init();
 </script>
 </body>
-</html
+</html>
