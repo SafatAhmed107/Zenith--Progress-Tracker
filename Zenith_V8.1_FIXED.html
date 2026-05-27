@@ -2326,15 +2326,12 @@ body.study-active .study-mode-hud { display: flex; }
         <span class="energy-val medium" id="energySidebarVal">—</span>
         <button class="energy-edit-btn" onclick="openModal('energyModal')">✏️</button>
       </div>
-      <div class="energy-strip">
-        </div>
 
       <div class="focus-score-display">
         <div class="focus-score-num" id="focusScoreVal">0</div>
         <div class="focus-score-lbl">Focus Score</div>
       </div>
 
-      <button class="do-now-btn" onclick="doNow()">⚡ What Should I Do Now?</button>
       <!-- Do Now -->
       <button class="do-now-btn" onclick="doNow()">⚡ What Should I Do Now?</button>
 
@@ -2538,16 +2535,15 @@ body.study-active .study-mode-hud { display: flex; }
   <div class="goals-layout">
     <div class="horizon-header">
       <div>
-        <h2 id="horizonTitle" style="font-family:var(--font-display); font-size:24px;">Semester Horizon</h2>
-        <p id="horizonSub" style="color:var(--text2); font-size:12.5px; margin-top:3px;">Aligning 6-month objectives with your Yearly vision.</p>
+        <h2 id="horizonTitle" style="font-family:var(--font-display); font-size:24px;">Quarterly Horizon</h2>
+        <p id="horizonSub" style="color:var(--text2); font-size:12.5px; margin-top:3px;">12-week execution blocks aligned with your life areas.</p>
       </div>
       
       <div class="horizon-picker">
-        <button class="hp-btn" onclick="setHorizon('vision', this)">Vision</button>
-        <button class="hp-btn" onclick="setHorizon('year', this)">Year</button>
-        <button class="hp-btn active" onclick="setHorizon('semester', this)">Semester</button>
-        <button class="hp-btn" onclick="setHorizon('month', this)">Month</button>
-        <button class="hp-btn" onclick="setHorizon('week', this)">Week</button>
+        <button class="hp-btn" onclick="setHorizon('lifearea', this)">Life Areas</button>
+        <button class="hp-btn active" onclick="setHorizon('quarterly', this)">Quarterly</button>
+        <button class="hp-btn" onclick="setHorizon('monthly', this)">Monthly</button>
+        <button class="hp-btn" onclick="setHorizon('weekly', this)">Weekly</button>
       </div>
 
       <button class="btn-primary" onclick="openAddGoal()">+ New Objective</button>
@@ -2735,7 +2731,11 @@ body.study-active .study-mode-hud { display: flex; }
     
     <div class="form-group">
       <label class="form-label">Est. Duration (min)</label>
-      <input class="form-input" id="taskDurInput" type="number" placeholder="60" min="1"/>
+      <input class="form-input" id="taskDurInput" type="number" placeholder="60" min="1" onblur="checkDurationForBreakdown()"/>
+      <div id="durationSuggestion" style="display:none; margin-top:6px; padding:8px; background:rgba(77,168,255,0.1); border-left:3px solid var(--accent); border-radius:4px; font-size:11px; color:var(--text2);"></div>
+      <div id="breakdownWarning" style="display:none; margin-top:6px; padding:8px; background:rgba(255,186,59,0.1); border-left:3px solid var(--yellow); border-radius:4px; font-size:11px; color:var(--text2);">
+        ⚠️ This task is quite long (>2 hours). Consider breaking it into smaller subtasks for better focus.
+      </div>
     </div>
     
     <div class="form-group">
@@ -2922,11 +2922,10 @@ body.study-active .study-mode-hud { display: flex; }
       <div class="form-group">
         <label class="form-label">Horizon Level</label>
         <select class="form-select" id="goalLevelInput" onchange="updateGoalParentOptions()">
-          <option value="vision">Vision (Multi-Year)</option>
-          <option value="year">Yearly Goal</option>
-          <option value="semester">Semester / 6-Month</option>
-          <option value="month">Monthly Goal</option>
-          <option value="week">Weekly Goal</option>
+          <option value="lifearea">Life Area (Timeless)</option>
+          <option value="quarterly">Quarterly OKR (12 weeks)</option>
+          <option value="monthly">Monthly Theme (4 weeks)</option>
+          <option value="weekly">Weekly Sprint (7 days)</option>
         </select>
       </div>
       <div class="form-group">
@@ -3057,6 +3056,60 @@ let habits     = safeJSONParse('z3_habits', []);
 let habitLogs  = safeJSONParse('z3_hlogs', {});
 let reviews    = safeJSONParse('z3_reviews', []);
 let todayEnergy = localStorage.getItem('z3_energy') || null;
+
+// ══════════════════════════════════════════════════════════════
+// ENHANCED FEATURES DATA STRUCTURES
+// ══════════════════════════════════════════════════════════════
+let energyHistory = safeJSONParse('z3_energy_history', {}); // { 'YYYY-MM-DD': { morning: 'high', afternoon: 'medium', evening: 'low', hourly: [8,9,7...] } }
+let taskDurationLearning = safeJSONParse('z3_task_learning', {}); // { 'taskType': { estimated: 120, actual: 150, count: 5 } }
+let distractionLog = safeJSONParse('z3_distractions', []); // [{ date, time, type, description, context }]
+let morningRitualData = safeJSONParse('z3_morning_ritual', {}); // { date: { energy, intentions, gratitude, context } }
+let goalHealthScores = safeJSONParse('z3_goal_health', {}); // { goalId: { score, status, lastActivity } }
+let habitImpactData = safeJSONParse('z3_habit_impact', {}); // { habitId: { correlations: { productivity: 0.23, focus: 0.15 } } }
+
+// Life Areas Definition
+const LIFE_AREAS = [
+  { id: 'health', name: 'Health', icon: '💪', color: '#34d184' },
+  { id: 'career', name: 'Career', icon: '💼', color: '#4da8ff' },
+  { id: 'relationships', name: 'Relationships', icon: '❤️', color: '#ff52aa' },
+  { id: 'learning', name: 'Learning', icon: '📚', color: '#9c78ff' },
+  { id: 'finance', name: 'Finance', icon: '💰', color: '#ffba3b' },
+  { id: 'personal', name: 'Personal', icon: '🌟', color: '#22ddc6' }
+];
+
+// Task Templates
+const TASK_TEMPLATES = {
+  'Code Feature': {
+    subtasks: ['Design', 'Implement', 'Test', 'Review', 'Deploy'],
+    energyType: 'deep',
+    estimatedTime: 240
+  },
+  'Write Article': {
+    subtasks: ['Research', 'Outline', 'Draft', 'Edit', 'Publish'],
+    energyType: 'medium',
+    estimatedTime: 180
+  },
+  'Meeting': {
+    subtasks: ['Prepare agenda', 'Attend', 'Send notes'],
+    energyType: 'light',
+    estimatedTime: 60
+  },
+  'Learning': {
+    subtasks: ['Watch/Read', 'Take notes', 'Practice', 'Review'],
+    energyType: 'medium',
+    estimatedTime: 120
+  }
+};
+
+// Distraction Types
+const DISTRACTION_TYPES = {
+  'Notification': 'digital',
+  'Person': 'social',
+  'Thought': 'internal',
+  'Environment': 'physical',
+  'Other': 'misc'
+};
+
 // ══════════════════════════════════════════════════════════════
 // PHASE 1: NODE ARCHITECTURE MIGRATION
 // ══════════════════════════════════════════════════════════════
@@ -3066,16 +3119,23 @@ function migrateDataSchema() {
   tasks.forEach(t => {
     if (!t.nodeType) { t.nodeType = 'day'; t.parentId = null; migrated = true; }
   });
-  // Upgrade existing goals to 'quarter' nodes
+  // Upgrade existing goals - migrate old structure to new
   if (typeof goals !== 'undefined') {
     goals.forEach(g => {
-      if (!g.nodeType) { g.nodeType = 'semester'; g.parentId = null; migrated = true; }
+      // Migrate old nodeTypes to new structure
+      if (!g.nodeType || g.nodeType === 'semester' || g.nodeType === 'vision' || g.nodeType === 'year') { 
+        g.nodeType = 'quarterly'; 
+        g.parentId = null; 
+        migrated = true; 
+      }
+      if (g.nodeType === 'month') { g.nodeType = 'monthly'; migrated = true; }
+      if (g.nodeType === 'week') { g.nodeType = 'weekly'; migrated = true; }
     });
   }
   if (migrated) {
     localStorage.setItem('z3_tasks', JSON.stringify(tasks));
     if (typeof goals !== 'undefined') localStorage.setItem('z3_goals', JSON.stringify(goals));
-    console.log("Database successfully migrated to Node Architecture.");
+    console.log("Database successfully migrated to new planning structure.");
   }
 }
 let currentDate     = new Date();
@@ -3157,14 +3217,35 @@ function toggleThemePicker() {
 function setAppTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem('z3_app_theme', theme);
-  document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === theme));
+  
+  // Update theme swatch highlights
+  document.querySelectorAll('.tp-swatch').forEach(swatch => {
+    if (swatch.dataset.theme === theme) {
+      swatch.classList.add('active');
+      swatch.style.borderColor = 'var(--accent)';
+    } else {
+      swatch.classList.remove('active');
+      swatch.style.borderColor = 'transparent';
+    }
+  });
+  
   initParticles(); 
 }
 
 function setAppMode(mode) {
   document.documentElement.dataset.mode = mode;
   localStorage.setItem('z3_app_mode', mode);
-  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  
+  // Update mode button highlights
+  document.querySelectorAll('.tp-mode-btn').forEach(btn => {
+    if (btn.id === 'tpDark' && mode === 'dark') {
+      btn.classList.add('active');
+    } else if (btn.id === 'tpLight' && mode === 'light') {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -3395,6 +3476,12 @@ function updateEnergyDisplay() {
     el.textContent  = labels[todayEnergy]||'—';
     el.className    = `energy-val ${todayEnergy}`;
     btn.textContent = labels[todayEnergy];
+    
+    // Show energy budget if available
+    const budget = calculateEnergyBudget(todayEnergy);
+    if (budget.overbooked) {
+      showToast(`⚠️ Energy overbooked! You have ${budget.used} points of tasks but only ${budget.budget} energy points available.`, 'warning');
+    }
   }
 }
 
@@ -4237,7 +4324,7 @@ function openAddTask() {
   document.querySelectorAll('.et-btn').forEach(b=>b.classList.toggle('active',b.dataset.e==='medium'));
   
   // Populate Parent Goals with hierarchy context
-  const levelLabels = { vision:'Vision', year:'Year', semester:'Semester', month:'Month', week:'Week' };
+  const levelLabels = { lifearea:'Life Area', quarterly:'Quarterly', monthly:'Monthly', weekly:'Weekly' };
   document.getElementById('taskParentInput').innerHTML = `<option value="">No Parent (Orphan Task)</option>` + 
     goals.map(g => `<option value="${g.id}">[${levelLabels[g.nodeType]||g.nodeType}] ${g.title}</option>`).join('');
   document.getElementById('taskParentInput').value = '';
@@ -4318,7 +4405,7 @@ function editTask(id) {
   document.querySelectorAll('.ps-btn').forEach(b=>b.classList.toggle('active',b.dataset.p===selectedPriority));
   document.querySelectorAll('.et-btn').forEach(b=>b.classList.toggle('active',b.dataset.e===selectedEnergyType));
   renderModalSubtasks();
-  const levelLabels2 = { vision:'Vision', year:'Year', semester:'Semester', month:'Month', week:'Week' };
+  const levelLabels2 = { lifearea:'Life Area', quarterly:'Quarterly', monthly:'Monthly', weekly:'Weekly' };
   document.getElementById('taskParentInput').innerHTML = `<option value="">No Parent (Orphan Task)</option>` + 
     goals.map(g => `<option value="${g.id}">[${levelLabels2[g.nodeType]||g.nodeType}] ${g.title}</option>`).join('');
   document.getElementById('taskParentInput').value = t.parentId || '';
@@ -4499,6 +4586,62 @@ function deleteTask(id) {
   if (doNowTaskId===id) doNowTaskId=null;
   saveAll(); renderCalendar(); renderTasks();
   showToast('Task deleted');
+}
+
+// ══════════════════════════════════════════════════════════════
+// SMART TASK HELPERS - Duration & Breakdown
+// ══════════════════════════════════════════════════════════════
+
+function checkDurationForBreakdown() {
+  const duration = parseInt(document.getElementById('taskDurInput').value);
+  const warningDiv = document.getElementById('breakdownWarning');
+  
+  if (duration && shouldBreakDownTask(duration)) {
+    warningDiv.style.display = 'block';
+    // Auto-suggest subtasks if title matches a template
+    const title = document.getElementById('taskTitleInput').value;
+    if (title) {
+      const suggested = suggestSubtasksFromTemplate(title);
+      if (suggested.length > 0 && editingSubtasks.length === 0) {
+        showToast(`💡 Suggested ${suggested.length} subtasks based on task type`, 'info');
+        editingSubtasks = suggested.map(s => ({ id: genId(), title: s, done: false }));
+        renderModalSubtasks();
+      }
+    }
+  } else {
+    warningDiv.style.display = 'none';
+  }
+}
+
+function showSmartDurationSuggestion() {
+  const title = document.getElementById('taskTitleInput').value;
+  const suggestionDiv = document.getElementById('durationSuggestion');
+  
+  if (title && title.length > 3) {
+    const suggestion = suggestTaskDuration(title);
+    if (suggestion) {
+      suggestionDiv.innerHTML = `💡 ${suggestion.message}`;
+      suggestionDiv.style.display = 'block';
+      // Auto-fill if duration is empty
+      const durInput = document.getElementById('taskDurInput');
+      if (!durInput.value) {
+        durInput.value = suggestion.suggested;
+      }
+    } else {
+      suggestionDiv.style.display = 'none';
+    }
+  } else {
+    suggestionDiv.style.display = 'none';
+  }
+}
+
+// Add event listener for title input to show smart suggestions
+function setupSmartTaskListeners() {
+  const titleInput = document.getElementById('taskTitleInput');
+  if (titleInput && !titleInput.dataset.listenerAdded) {
+    titleInput.addEventListener('blur', showSmartDurationSuggestion);
+    titleInput.dataset.listenerAdded = 'true';
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -5538,7 +5681,7 @@ function cascadeDown(parentId) {
   const parent = goals.find(g => g.id === parentId);
   if (!parent) return;
 
-  const childMap = { vision: 'year', year: 'semester', semester: 'month', month: 'week', week: 'day' };
+  const childMap = { lifearea: 'quarterly', quarterly: 'monthly', monthly: 'weekly', weekly: 'day' };
   const childLevel = childMap[parent.nodeType];
 
   if (childLevel === 'day') {
@@ -5613,7 +5756,7 @@ function updateGoalParentOptions() {
   const level = document.getElementById('goalLevelInput').value;
   const parentSelect = document.getElementById('goalParentInput');
   // Only show goals that are a HIGHER level than the current one to prevent infinite loops
-  const levelWeights = { vision: 5, year: 4, semester: 3, month: 2, week: 1 };
+  const levelWeights = { lifearea: 4, quarterly: 3, monthly: 2, weekly: 1 };
   const validParents = goals.filter(g => levelWeights[g.nodeType] > levelWeights[level]);
   parentSelect.innerHTML = `<option value="">None (Top Level)</option>` + 
     validParents.map(g => `<option value="${g.id}">${g.title} (${capFirst(g.nodeType)})</option>`).join('');
@@ -5633,7 +5776,7 @@ function openAddGoal() {
   
   // Show day selector only for Weekly/Monthly horizons
   const level = document.getElementById('goalLevelInput').value;
-  document.getElementById('daySelectorGroup').style.display = (level === 'week' || level === 'month') ? 'block' : 'none';
+  document.getElementById('daySelectorGroup').style.display = (level === 'weekly' || level === 'monthly') ? 'block' : 'none';
 
   updateGoalParentOptions();
   renderModalKrs(); openModal('goalModal');
@@ -5678,7 +5821,7 @@ function renderModalKrs() {
   document.getElementById('modalKrList').innerHTML = editingKrs.map((kr, i) => `<div class="modal-subtask-item"><span>${kr.text}</span><button class="modal-subtask-del" onclick="editingKrs.splice(${i},1);renderModalKrs()">×</button></div>`).join('');
 }
 
-let currentHorizon = 'semester'; // Default zoom
+let currentHorizon = 'quarterly'; // Default zoom
 
 // --- Gantt Math Engine ---
 function getGanttWindow(horizon) {
@@ -5768,18 +5911,17 @@ function setHorizon(level, btn) {
   
   // Update Header Text
   const titles = {
-    vision: ["Life Vision", "Your 5-year north star pillars."],
-    year: ["Yearly Horizon", "Major milestones for the current year."],
-    semester: ["Semester Horizon", "6-month execution blocks."],
-    month: ["Monthly Horizon", "Monthly sprints and focus areas."],
-    week: ["Weekly Horizon", "High-level intentions for the next 7 days."]
+    lifearea: ["Life Areas", "Timeless pillars that define your life balance."],
+    quarterly: ["Quarterly OKRs", "12-week execution blocks with measurable outcomes."],
+    monthly: ["Monthly Themes", "Focus areas for the next 4 weeks."],
+    weekly: ["Weekly Sprints", "Concrete outcomes for the next 7 days."]
   };
   document.getElementById('horizonTitle').textContent = titles[level][0];
   document.getElementById('horizonSub').textContent = titles[level][1];
   
   // Show/hide Gantt timeline
   const ganttContainer = document.getElementById('ganttTimeline');
-  if (['vision', 'week', 'month', 'year'].includes(level)) {
+  if (['lifearea', 'weekly', 'monthly', 'quarterly'].includes(level)) {
     ganttContainer.style.display = 'block';
     renderGanttTimeline(level);
   } else {
@@ -5797,7 +5939,7 @@ function editGoal(id) {
   document.getElementById('goalTitleInput').value = g.title;
   document.getElementById('goalIconInput').value = g.icon || '🎯';
   document.getElementById('goalTimeInput').value = g.time || '';
-  document.getElementById('goalLevelInput').value = g.nodeType || 'semester';
+  document.getElementById('goalLevelInput').value = g.nodeType || 'quarterly';
   updateGoalParentOptions();
   document.getElementById('goalParentInput').value = g.parentId || '';
   document.querySelector('#goalModal .modal-title span').textContent = 'Edit Goal / OKR';
@@ -5825,7 +5967,7 @@ function renderGoals() {
         const parent = goals.find(p => p.id === g.parentId);
         const childGoalCount = goals.filter(c => c.parentId === g.id).length;
         const childTaskCount = tasks.filter(t => t.parentId === g.id).length;
-        const nextLevelName = {vision:'Year',year:'Semester',semester:'Month',month:'Week',week:'Daily Tasks'}[g.nodeType];
+        const nextLevelName = {lifearea:'Quarterly',quarterly:'Monthly',monthly:'Weekly',weekly:'Daily Tasks'}[g.nodeType];
 
         // Key Results list
         const krHtml = (g.krs || []).length > 0 ? `
@@ -6329,6 +6471,259 @@ function editGoalFromDetail() {
 }
 
 // ══════════════════════════════════════════════════════════════
+// INTELLIGENT FEATURES - ENERGY TRACKING & ANALYTICS
+// ══════════════════════════════════════════════════════════════
+
+// Track energy patterns over time
+function trackEnergyPattern(level, timeOfDay) {
+  const today = fmtDate(new Date());
+  if (!energyHistory[today]) {
+    energyHistory[today] = { morning: null, afternoon: null, evening: null, hourly: [] };
+  }
+  energyHistory[today][timeOfDay] = level;
+  localStorage.setItem('z3_energy_history', JSON.stringify(energyHistory));
+}
+
+// Predict best work time based on historical energy data
+function predictBestWorkTime() {
+  const last30Days = Object.keys(energyHistory).slice(-30);
+  if (last30Days.length < 7) return null; // Need at least a week of data
+  
+  const timeSlots = { morning: 0, afternoon: 0, evening: 0 };
+  const energyValues = { high: 3, medium: 2, low: 1 };
+  
+  last30Days.forEach(date => {
+    const day = energyHistory[date];
+    if (day.morning) timeSlots.morning += energyValues[day.morning] || 0;
+    if (day.afternoon) timeSlots.afternoon += energyValues[day.afternoon] || 0;
+    if (day.evening) timeSlots.evening += energyValues[day.evening] || 0;
+  });
+  
+  const best = Object.keys(timeSlots).reduce((a, b) => timeSlots[a] > timeSlots[b] ? a : b);
+  return `You're most productive in the ${best}`;
+}
+
+// Suggest energy recovery actions
+function suggestEnergyRecovery(currentEnergy, hoursWorked) {
+  if (currentEnergy === 'low' && hoursWorked > 4) {
+    return [
+      '🚶 Take a 10-minute walk',
+      '🧘 5-minute meditation break',
+      '😴 Power nap (20 minutes)',
+      '🥗 Healthy snack & hydration',
+      '💡 Switch to light tasks'
+    ];
+  }
+  return [];
+}
+
+// Calculate energy budget for the day
+function calculateEnergyBudget(energyLevel) {
+  const ENERGY_BUDGET = { high: 8, medium: 5, low: 3 };
+  const TASK_ENERGY_COST = { deep: 3, medium: 2, light: 1 };
+  
+  const dailyBudget = ENERGY_BUDGET[energyLevel] || 5;
+  const todayTasks = tasks.filter(t => t.date === fmtDate(new Date()) && !t.completed);
+  const totalCost = todayTasks.reduce((sum, t) => sum + (TASK_ENERGY_COST[t.energyType] || 2), 0);
+  
+  return {
+    budget: dailyBudget,
+    used: totalCost,
+    remaining: dailyBudget - totalCost,
+    overbooked: totalCost > dailyBudget
+  };
+}
+
+// ══════════════════════════════════════════════════════════════
+// INTELLIGENT FEATURES - TASK DURATION LEARNING
+// ══════════════════════════════════════════════════════════════
+
+// Learn from actual task durations
+function learnTaskDuration(taskTitle, estimated, actual) {
+  const taskType = detectTaskType(taskTitle);
+  if (!taskDurationLearning[taskType]) {
+    taskDurationLearning[taskType] = { totalEstimated: 0, totalActual: 0, count: 0 };
+  }
+  
+  taskDurationLearning[taskType].totalEstimated += estimated;
+  taskDurationLearning[taskType].totalActual += actual;
+  taskDurationLearning[taskType].count += 1;
+  
+  localStorage.setItem('z3_task_learning', JSON.stringify(taskDurationLearning));
+}
+
+// Detect task type from title
+function detectTaskType(title) {
+  const lower = title.toLowerCase();
+  if (lower.includes('code') || lower.includes('develop') || lower.includes('implement')) return 'coding';
+  if (lower.includes('write') || lower.includes('article') || lower.includes('blog')) return 'writing';
+  if (lower.includes('meeting') || lower.includes('call')) return 'meeting';
+  if (lower.includes('learn') || lower.includes('study') || lower.includes('course')) return 'learning';
+  if (lower.includes('design') || lower.includes('mockup')) return 'design';
+  return 'general';
+}
+
+// Suggest task duration based on learning
+function suggestTaskDuration(taskTitle) {
+  const taskType = detectTaskType(taskTitle);
+  const learning = taskDurationLearning[taskType];
+  
+  if (learning && learning.count > 2) {
+    const avgActual = Math.round(learning.totalActual / learning.count);
+    const accuracy = Math.round((learning.totalEstimated / learning.totalActual) * 100);
+    return {
+      suggested: avgActual,
+      message: `Based on ${learning.count} similar tasks, this usually takes ${avgActual} minutes (you typically ${accuracy < 100 ? 'underestimate' : 'overestimate'} by ${Math.abs(100 - accuracy)}%)`
+    };
+  }
+  
+  return null;
+}
+
+// ══════════════════════════════════════════════════════════════
+// INTELLIGENT FEATURES - GOAL HEALTH SCORING
+// ══════════════════════════════════════════════════════════════
+
+// Calculate goal health score
+function calculateGoalHealth(goalId) {
+  const goal = goals.find(g => g.id === goalId);
+  if (!goal) return null;
+  
+  const linkedTasks = tasks.filter(t => t.parentId === goalId);
+  const completedTasks = linkedTasks.filter(t => t.completed).length;
+  const totalTasks = linkedTasks.length;
+  
+  // Recent activity (last 7 days)
+  const weekAgo = new Date();
+  weekAgo.setDate(weekAgo.getDate() - 7);
+  const recentActivity = linkedTasks.some(t => {
+    const taskDate = parseDate(t.date);
+    return taskDate >= weekAgo;
+  });
+  
+  // Progress rate
+  const progressRate = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+  
+  // Calculate score
+  let score = 0;
+  score += recentActivity ? 30 : 0;
+  score += Math.min(progressRate, 50);
+  score += totalTasks > 0 ? 20 : 0;
+  
+  const status = score > 70 ? 'healthy' : score > 40 ? 'at-risk' : 'stalled';
+  const recommendation = getHealthRecommendation(score, recentActivity, totalTasks);
+  
+  const healthData = { score, status, recommendation, lastChecked: new Date().toISOString() };
+  goalHealthScores[goalId] = healthData;
+  localStorage.setItem('z3_goal_health', JSON.stringify(goalHealthScores));
+  
+  return healthData;
+}
+
+function getHealthRecommendation(score, recentActivity, totalTasks) {
+  if (score > 70) return '✅ Great progress! Keep up the momentum.';
+  if (!recentActivity) return '⚠️ No recent activity. Schedule a task this week.';
+  if (totalTasks === 0) return '📝 Break this goal into actionable tasks.';
+  return '🔄 Progress is slow. Review and adjust your approach.';
+}
+
+// ══════════════════════════════════════════════════════════════
+// INTELLIGENT FEATURES - SMART TASK SUGGESTIONS
+// ══════════════════════════════════════════════════════════════
+
+// Suggest tasks based on energy level and time of day
+function suggestTasksForEnergy(energyLevel) {
+  const now = new Date();
+  const hour = now.getHours();
+  const incompleteTasks = tasks.filter(t => !t.completed && t.date === fmtDate(now));
+  
+  // Match tasks to energy level
+  const energyMatch = {
+    high: ['deep'],
+    medium: ['medium', 'deep'],
+    low: ['light', 'medium']
+  };
+  
+  const matchedTasks = incompleteTasks.filter(t => 
+    energyMatch[energyLevel]?.includes(t.energyType)
+  );
+  
+  return matchedTasks.slice(0, 3); // Top 3 suggestions
+}
+
+// Detect if task should be broken down
+function shouldBreakDownTask(duration) {
+  return duration > 120; // Tasks longer than 2 hours
+}
+
+// Auto-suggest subtasks from template
+function suggestSubtasksFromTemplate(taskTitle) {
+  for (const [templateName, template] of Object.entries(TASK_TEMPLATES)) {
+    if (taskTitle.toLowerCase().includes(templateName.toLowerCase().split(' ')[0])) {
+      return template.subtasks;
+    }
+  }
+  return [];
+}
+
+// ══════════════════════════════════════════════════════════════
+// INTELLIGENT FEATURES - DISTRACTION ANALYTICS
+// ══════════════════════════════════════════════════════════════
+
+// Log distraction with categorization
+function logDistractionEnhanced(description, context = '') {
+  const type = categorizeDistraction(description);
+  const entry = {
+    id: genId(),
+    date: fmtDate(new Date()),
+    time: new Date().toLocaleTimeString(),
+    type,
+    description,
+    context
+  };
+  
+  distractionLog.push(entry);
+  localStorage.setItem('z3_distractions', JSON.stringify(distractionLog));
+  
+  return entry;
+}
+
+function categorizeDistraction(description) {
+  const lower = description.toLowerCase();
+  if (lower.includes('notification') || lower.includes('phone') || lower.includes('email')) return 'digital';
+  if (lower.includes('person') || lower.includes('colleague') || lower.includes('call')) return 'social';
+  if (lower.includes('thought') || lower.includes('worry') || lower.includes('idea')) return 'internal';
+  if (lower.includes('noise') || lower.includes('temperature') || lower.includes('uncomfortable')) return 'physical';
+  return 'misc';
+}
+
+// Get distraction insights
+function getDistractionInsights() {
+  const last7Days = distractionLog.filter(d => {
+    const logDate = parseDate(d.date);
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
+    return logDate >= weekAgo;
+  });
+  
+  const typeCounts = {};
+  last7Days.forEach(d => {
+    typeCounts[d.type] = (typeCounts[d.type] || 0) + 1;
+  });
+  
+  const topDistraction = Object.keys(typeCounts).reduce((a, b) => 
+    typeCounts[a] > typeCounts[b] ? a : b, 'none'
+  );
+  
+  return {
+    total: last7Days.length,
+    topType: topDistraction,
+    count: typeCounts[topDistraction] || 0,
+    breakdown: typeCounts
+  };
+}
+
+// ══════════════════════════════════════════════════════════════
 // GANTT TIMELINE RENDERING
 // ══════════════════════════════════════════════════════════════
 function renderGanttTimeline(level) {
@@ -6339,29 +6734,27 @@ function renderGanttTimeline(level) {
   let columns = [];
   let goalData = [];
   
-  if (level === 'vision') {
-    // Generate 5-year multi-year view
-    const currentYear = now.getFullYear();
-    for (let i = -1; i <= 3; i++) {
-      const year = currentYear + i;
-      const isCurrentYear = i === 0;
+  if (level === 'lifearea') {
+    // Generate life area view - show all life areas as timeless pillars
+    const lifeAreas = ['Health', 'Career', 'Relationships', 'Learning', 'Finance', 'Personal'];
+    lifeAreas.forEach((area, i) => {
       columns.push({
-        label: year.toString(),
-        sub: i === 0 ? 'Current' : (i < 0 ? 'Past' : 'Future'),
-        isToday: isCurrentYear
+        label: area,
+        sub: 'Timeless',
+        isToday: false
       });
-    }
+    });
     
-    // Get vision goals
-    const visionGoals = goals.filter(g => g.nodeType === 'vision');
-    goalData = visionGoals.map(g => ({
+    // Get life area goals
+    const lifeAreaGoals = goals.filter(g => g.nodeType === 'lifearea');
+    goalData = lifeAreaGoals.map(g => ({
       goal: g,
       startCol: 0,
-      span: columns.length,
+      span: 1,
       progress: getNodeProgress(g.id)
     }));
     
-  } else if (level === 'week') {
+  } else if (level === 'weekly') {
     // Generate 7-day week view (Mon-Sun)
     const today = new Date(now);
     const dayOfWeek = today.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
@@ -6382,7 +6775,7 @@ function renderGanttTimeline(level) {
     }
     
     // Get weekly goals and their tasks
-    const weeklyGoals = goals.filter(g => g.nodeType === 'week');
+    const weeklyGoals = goals.filter(g => g.nodeType === 'weekly');
     goalData = weeklyGoals.map(g => {
       const linkedTasks = tasks.filter(t => t.parentId === g.id);
       const taskDates = linkedTasks.map(t => t.date);
@@ -6397,7 +6790,7 @@ function renderGanttTimeline(level) {
       };
     });
     
-  } else if (level === 'month') {
+  } else if (level === 'monthly') {
     // Generate 4-5 week view
     const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
     const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
@@ -6417,7 +6810,7 @@ function renderGanttTimeline(level) {
     }
     
     // Get monthly goals
-    const monthlyGoals = goals.filter(g => g.nodeType === 'month');
+    const monthlyGoals = goals.filter(g => g.nodeType === 'monthly');
     goalData = monthlyGoals.map(g => ({
       goal: g,
       startCol: 0,
@@ -6425,32 +6818,31 @@ function renderGanttTimeline(level) {
       progress: getNodeProgress(g.id)
     }));
     
-  } else if (level === 'year') {
-    // Generate 12-month or 4-quarter view
-    const useQuarters = true; // Toggle for month vs quarter view
+  } else if (level === 'quarterly') {
+    // Generate 12-week quarterly view
+    const weeksInQuarter = 12;
+    const today = new Date(now);
+    const currentQuarter = Math.floor(now.getMonth() / 3);
+    const quarterStart = new Date(now.getFullYear(), currentQuarter * 3, 1);
     
-    if (useQuarters) {
-      ['Q1', 'Q2', 'Q3', 'Q4'].forEach((q, i) => {
-        columns.push({
-          label: q,
-          sub: ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'][i],
-          isToday: Math.floor(now.getMonth() / 3) === i
-        });
-      });
-    } else {
-      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      monthNames.forEach((m, i) => {
-        columns.push({
-          label: m,
-          sub: now.getFullYear().toString(),
-          isToday: now.getMonth() === i
-        });
+    for (let i = 0; i < weeksInQuarter; i++) {
+      const weekStart = new Date(quarterStart);
+      weekStart.setDate(quarterStart.getDate() + (i * 7));
+      const weekEnd = new Date(weekStart);
+      weekEnd.setDate(weekStart.getDate() + 6);
+      
+      const isCurrentWeek = now >= weekStart && now <= weekEnd;
+      
+      columns.push({
+        label: `W${i+1}`,
+        sub: `${weekStart.getMonth()+1}/${weekStart.getDate()}`,
+        isToday: isCurrentWeek
       });
     }
     
-    // Get yearly goals
-    const yearlyGoals = goals.filter(g => g.nodeType === 'year');
-    goalData = yearlyGoals.map(g => ({
+    // Get quarterly goals
+    const quarterlyGoals = goals.filter(g => g.nodeType === 'quarterly');
+    goalData = quarterlyGoals.map(g => ({
       goal: g,
       startCol: 0,
       span: columns.length,
@@ -6597,6 +6989,9 @@ if (todayEnergy) {
   document.getElementById('playBtn').style.borderColor=THEMES[currentTheme].stroke;
 
   renderHabits();
+  
+  // Initialize smart features
+  setupSmartTaskListeners();
 
   // Keyboard shortcuts
   document.addEventListener('keydown', e => {
