@@ -185,138 +185,229 @@ textarea:focus-visible,
 
 /* ── MIDNIGHT dark (default) ── */
 html[data-theme="midnight"][data-mode="dark"] {
-  --bg:#080c18; --bg2:#0d1428; --bg3:#121d38; --bg4:#172244;
-  --border:#192040; --border2:#1f2c52;
-  --text:#dce8fa; --text2:#6a84aa; --text3:#354c6a;
-  --accent:#4da8ff; --accent2:#1a5fd4; --accent-glow:rgba(77,168,255,.18);
-  --accent-rgb:77, 168, 255;
-  --glass-bg:rgba(8,14,30,.72); --glass-border:rgba(255,255,255,.07);
-  --bg-blob-a:rgba(13,28,72,.9); --bg-blob-b:rgba(8,18,50,.8); --bg-blob-c:rgba(5,12,30,.95);
-  --pomo-sky:linear-gradient(180deg,#04080e,#080d1c,#0c1430);
-  --mt-far:#1a2540; --mt-mid:#111830; --mt-near:#0a1020; --mt-base:#04080e;
-  --lake-a:rgba(8,18,55,.7); --lake-b:rgba(3,6,14,.95);
+  --bg:#060a14; --bg2:#0a1020; --bg3:#0f1830; --bg4:#152040;
+  --border:#1a2548; --border2:#243058;
+  --text:#e8f0ff; --text2:#7a92c0; --text3:#3d5278;
+  --accent:#5eb3ff; --accent2:#2680e8; --accent-glow:rgba(94,179,255,.22);
+  --accent-rgb:94, 179, 255;
+  --glass-bg:rgba(10,16,32,.75); --glass-border:rgba(255,255,255,.09);
+  --bg-blob-a:rgba(15,32,80,.92); --bg-blob-b:rgba(10,22,58,.88); --bg-blob-c:rgba(6,14,36,.96);
+  --pomo-sky:linear-gradient(180deg,#030610,#070d1e,#0d1632);
+  --mt-far:#1e2d50; --mt-mid:#141f3a; --mt-near:#0b1224; --mt-base:#030610;
+  --lake-a:rgba(10,22,62,.75); --lake-b:rgba(4,8,18,.96);
+  /* Heatmap colors for dark midnight */
+  --heatmap-none:rgba(15,24,48,.4); --heatmap-none-border:rgba(94,179,255,.15);
+  --heatmap-l1:rgba(94,179,255,.35); --heatmap-l1-border:rgba(94,179,255,.55);
+  --heatmap-l2:rgba(94,179,255,.60); --heatmap-l2-border:rgba(94,179,255,.75);
+  --heatmap-l3:rgba(94,179,255,.80); --heatmap-l3-border:rgba(94,179,255,.90);
+  --heatmap-l4:rgba(94,179,255,.95); --heatmap-l4-border:#5eb3ff;
+  --heatmap-glow:rgba(94,179,255,.3);
 }
 /* ── MIDNIGHT light ── */
 html[data-theme="midnight"][data-mode="light"] {
-  --bg:#f2f5fa; --bg2:#e8ecf4; --bg3:#dde3ee; --bg4:#d2d9e8;
-  --border:#c0cade; --border2:#b0bdd4;
-  --text:#0e1a2e; --text2:#4a6080; --text3:#90a8c8;
-  --accent:#1a5fd4; --accent2:#0e42a0; --accent-glow:rgba(26,95,212,.15);
-  --accent-rgb:26, 95, 212;
-  --glass-bg:rgba(255,255,255,.7); --glass-border:rgba(0,0,0,.08);
-  --glass-highlight:rgba(255,255,255,.5); --glass-shine:rgba(255,255,255,.4);
-  --bg-blob-a:rgba(160,180,240,.6); --bg-blob-b:rgba(200,215,255,.7); --bg-blob-c:rgba(180,200,250,.65);
-  --pomo-sky:linear-gradient(180deg,#6090d8,#90b8f0,#b8d4ff);
-  --mt-far:#5070a0; --mt-mid:#405888; --mt-near:#304870; --mt-base:#dde3ee;
-  --lake-a:rgba(90,140,220,.4); --lake-b:rgba(210,225,250,.7);
+  --bg:#f8faff; --bg2:#f0f4fc; --bg3:#e6ecf8; --bg4:#dce4f4;
+  --border:#c8d4ec; --border2:#b8c8e4;
+  --text:#0a1428; --text2:#3d5580; --text3:#7a92c0;
+  --accent:#2680e8; --accent2:#1a5fd4; --accent-glow:rgba(38,128,232,.18);
+  --accent-rgb:38, 128, 232;
+  --glass-bg:rgba(255,255,255,.85); --glass-border:rgba(38,128,232,.12);
+  --glass-highlight:rgba(255,255,255,.65); --glass-shine:rgba(255,255,255,.5);
+  --bg-blob-a:rgba(180,200,255,.45); --bg-blob-b:rgba(210,225,255,.55); --bg-blob-c:rgba(195,215,255,.5);
+  --pomo-sky:linear-gradient(180deg,#7aa4f0,#a0c0ff,#c8dcff);
+  --mt-far:#5880c0; --mt-mid:#4268a0; --mt-near:#345088; --mt-base:#e6ecf8;
+  --lake-a:rgba(100,150,230,.35); --lake-b:rgba(220,235,255,.65);
+  /* Heatmap colors for light midnight */
+  --heatmap-none:rgba(230,236,248,.6); --heatmap-none-border:rgba(38,128,232,.2);
+  --heatmap-l1:rgba(38,128,232,.25); --heatmap-l1-border:rgba(38,128,232,.45);
+  --heatmap-l2:rgba(38,128,232,.45); --heatmap-l2-border:rgba(38,128,232,.65);
+  --heatmap-l3:rgba(38,128,232,.65); --heatmap-l3-border:rgba(38,128,232,.80);
+  --heatmap-l4:rgba(38,128,232,.85); --heatmap-l4-border:#2680e8;
+  --heatmap-glow:rgba(38,128,232,.25);
 }
 /* ── FOREST dark ── */
 html[data-theme="forest"][data-mode="dark"] {
-  --bg:#060d07; --bg2:#0a1509; --bg3:#0e1c0d; --bg4:#122212;
-  --border:#152815; --border2:#1a3418;
-  --text:#d0f0d4; --text2:#60a068; --text3:#30603a;
-  --accent:#4ade80; --accent2:#16a34a; --accent-glow:rgba(74,222,128,.18);
-  --glass-bg:rgba(4,12,6,.72); --glass-border:rgba(100,220,120,.1);
-  --bg-blob-a:rgba(8,30,12,.95); --bg-blob-b:rgba(5,20,8,.9); --bg-blob-c:rgba(3,12,5,.98);
-  --pomo-sky:linear-gradient(180deg,#030a04,#061008,#0a1a0c);
-  --mt-far:#142a18; --mt-mid:#0e1e12; --mt-near:#081408; --mt-base:#030a04;
-  --lake-a:rgba(8,30,10,.7); --lake-b:rgba(2,8,3,.95);
+  --bg:#050e08; --bg2:#0a1810; --bg3:#0f2418; --bg4:#143020;
+  --border:#1a3828; --border2:#204430;
+  --text:#d8f5dc; --text2:#68b078; --text3:#386848;
+  --accent:#52e88c; --accent2:#20b858; --accent-glow:rgba(82,232,140,.22);
+  --accent-rgb:82, 232, 140;
+  --glass-bg:rgba(8,18,12,.75); --glass-border:rgba(82,232,140,.12);
+  --bg-blob-a:rgba(10,35,15,.92); --bg-blob-b:rgba(6,24,10,.88); --bg-blob-c:rgba(4,15,6,.96);
+  --pomo-sky:linear-gradient(180deg,#020a04,#06140a,#0c2010);
+  --mt-far:#183828; --mt-mid:#102818; --mt-near:#0a1810; --mt-base:#020a04;
+  --lake-a:rgba(10,35,15,.75); --lake-b:rgba(3,10,5,.96);
+  /* Heatmap colors for dark forest */
+  --heatmap-none:rgba(15,36,24,.4); --heatmap-none-border:rgba(82,232,140,.15);
+  --heatmap-l1:rgba(82,232,140,.35); --heatmap-l1-border:rgba(82,232,140,.55);
+  --heatmap-l2:rgba(82,232,140,.60); --heatmap-l2-border:rgba(82,232,140,.75);
+  --heatmap-l3:rgba(82,232,140,.80); --heatmap-l3-border:rgba(82,232,140,.90);
+  --heatmap-l4:rgba(82,232,140,.95); --heatmap-l4-border:#52e88c;
+  --heatmap-glow:rgba(82,232,140,.3);
 }
 /* ── FOREST light ── */
 html[data-theme="forest"][data-mode="light"] {
-  --bg:#f4faf4; --bg2:#e8f5e8; --bg3:#dcf0dc; --bg4:#d0ead0;
-  --border:#bcdebf; --border2:#a8d4ab;
-  --text:#0a1f0c; --text2:#3a7040; --text3:#80b888;
-  --accent:#16a34a; --accent2:#14532d; --accent-glow:rgba(22,163,74,.15);
-  --accent-rgb:22, 163, 74;
-  --glass-bg:rgba(244,250,244,.75); --glass-border:rgba(0,100,20,.1);
-  --glass-highlight:rgba(255,255,255,.5);
-  --bg-blob-a:rgba(180,230,185,.7); --bg-blob-b:rgba(200,240,205,.75); --bg-blob-c:rgba(160,220,170,.8);
-  --pomo-sky:linear-gradient(180deg,#4a8c54,#70b87c,#a8d8b0);
-  --mt-far:#2a6030; --mt-mid:#1e4a24; --mt-near:#143618; --mt-base:#dcf0dc;
-  --lake-a:rgba(60,140,70,.4); --lake-b:rgba(200,240,205,.65);
+  --bg:#f8fef8; --bg2:#f0fcf0; --bg3:#e6f8e8; --bg4:#dcf4e0;
+  --border:#c8e8cc; --border2:#b8dcc0;
+  --text:#0a2010; --text2:#2d6040; --text3:#68b078;
+  --accent:#20b858; --accent2:#188840; --accent-glow:rgba(32,184,88,.18);
+  --accent-rgb:32, 184, 88;
+  --glass-bg:rgba(255,255,255,.85); --glass-border:rgba(32,184,88,.12);
+  --glass-highlight:rgba(255,255,255,.65); --glass-shine:rgba(255,255,255,.5);
+  --bg-blob-a:rgba(190,240,200,.45); --bg-blob-b:rgba(215,250,220,.55); --bg-blob-c:rgba(200,245,210,.5);
+  --pomo-sky:linear-gradient(180deg,#60c878,#88e098,#b0f0c0);
+  --mt-far:#40a060; --mt-mid:#308048; --mt-near:#206030; --mt-base:#e6f8e8;
+  --lake-a:rgba(80,180,100,.35); --lake-b:rgba(220,250,225,.65);
+  /* Heatmap colors for light forest */
+  --heatmap-none:rgba(230,248,232,.6); --heatmap-none-border:rgba(32,184,88,.2);
+  --heatmap-l1:rgba(32,184,88,.25); --heatmap-l1-border:rgba(32,184,88,.45);
+  --heatmap-l2:rgba(32,184,88,.45); --heatmap-l2-border:rgba(32,184,88,.65);
+  --heatmap-l3:rgba(32,184,88,.65); --heatmap-l3-border:rgba(32,184,88,.80);
+  --heatmap-l4:rgba(32,184,88,.85); --heatmap-l4-border:#20b858;
+  --heatmap-glow:rgba(32,184,88,.25);
 }
 /* ── OCEAN dark ── */
 html[data-theme="ocean"][data-mode="dark"] {
-  --bg:#040c1a; --bg2:#071428; --bg3:#0c1c38; --bg4:#102244;
-  --border:#122840; --border2:#183252;
-  --text:#c8e8f8; --text2:#4898b8; --text3:#284870;
-  --accent:#22d3ee; --accent2:#0891b2; --accent-glow:rgba(34,211,238,.18);
-  --glass-bg:rgba(4,14,30,.72); --glass-border:rgba(34,211,238,.1);
-  --bg-blob-a:rgba(5,20,45,.95); --bg-blob-b:rgba(4,16,38,.9); --bg-blob-c:rgba(2,10,25,.98);
-  --pomo-sky:linear-gradient(180deg,#020810,#040c1a,#071428);
-  --mt-far:#0c2040; --mt-mid:#081630; --mt-near:#050e1e; --mt-base:#020810;
-  --lake-a:rgba(8,30,60,.7); --lake-b:rgba(2,8,20,.95);
+  --bg:#040e1c; --bg2:#081828; --bg3:#0e2438; --bg4:#143048;
+  --border:#1a3858; --border2:#204468;
+  --text:#d0ecfc; --text2:#58a8d0; --text3:#306080;
+  --accent:#38dcf8; --accent2:#10a8d0; --accent-glow:rgba(56,220,248,.22);
+  --accent-rgb:56, 220, 248;
+  --glass-bg:rgba(8,18,36,.75); --glass-border:rgba(56,220,248,.12);
+  --bg-blob-a:rgba(8,28,52,.92); --bg-blob-b:rgba(6,20,42,.88); --bg-blob-c:rgba(4,14,30,.96);
+  --pomo-sky:linear-gradient(180deg,#020a14,#050e20,#0a1830);
+  --mt-far:#143050; --mt-mid:#0e2038; --mt-near:#081420; --mt-base:#020a14;
+  --lake-a:rgba(10,35,70,.75); --lake-b:rgba(3,10,24,.96);
+  /* Heatmap colors for dark ocean */
+  --heatmap-none:rgba(14,36,56,.4); --heatmap-none-border:rgba(56,220,248,.15);
+  --heatmap-l1:rgba(56,220,248,.35); --heatmap-l1-border:rgba(56,220,248,.55);
+  --heatmap-l2:rgba(56,220,248,.60); --heatmap-l2-border:rgba(56,220,248,.75);
+  --heatmap-l3:rgba(56,220,248,.80); --heatmap-l3-border:rgba(56,220,248,.90);
+  --heatmap-l4:rgba(56,220,248,.95); --heatmap-l4-border:#38dcf8;
+  --heatmap-glow:rgba(56,220,248,.3);
 }
 /* ── OCEAN light ── */
 html[data-theme="ocean"][data-mode="light"] {
-  --bg:#f0f8ff; --bg2:#e4f4fc; --bg3:#d8eef8; --bg4:#cce6f4;
-  --border:#b0d8f0; --border2:#98cce8;
-  --text:#052035; --text2:#2870a0; --text3:#70a8c8;
-  --accent:#0891b2; --accent2:#0e6886; --accent-glow:rgba(8,145,178,.15);
-  --accent-rgb:8, 145, 178;
-  --glass-bg:rgba(228,244,252,.75); --glass-border:rgba(0,100,150,.1);
-  --glass-highlight:rgba(255,255,255,.5);
-  --bg-blob-a:rgba(160,220,245,.7); --bg-blob-b:rgba(190,235,255,.75); --bg-blob-c:rgba(140,210,240,.8);
-  --pomo-sky:linear-gradient(180deg,#3898c8,#58b8e8,#90d0f8);
-  --mt-far:#2060a0; --mt-mid:#184888; --mt-near:#103070; --mt-base:#d8eef8;
-  --lake-a:rgba(50,130,200,.4); --lake-b:rgba(200,238,255,.65);
+  --bg:#f6fcff; --bg2:#f0f8ff; --bg3:#e6f4ff; --bg4:#dcf0fc;
+  --border:#c8e4f8; --border2:#b8d8f0;
+  --text:#0a2838; --text2:#2d6888; --text3:#58a8d0;
+  --accent:#10a8d0; --accent2:#0880a8; --accent-glow:rgba(16,168,208,.18);
+  --accent-rgb:16, 168, 208;
+  --glass-bg:rgba(255,255,255,.85); --glass-border:rgba(16,168,208,.12);
+  --glass-highlight:rgba(255,255,255,.65); --glass-shine:rgba(255,255,255,.5);
+  --bg-blob-a:rgba(180,230,250,.45); --bg-blob-b:rgba(210,245,255,.55); --bg-blob-c:rgba(195,238,252,.5);
+  --pomo-sky:linear-gradient(180deg,#50b0e0,#78d0f8,#a8e8ff);
+  --mt-far:#3090c8; --mt-mid:#2070a8; --mt-near:#185888; --mt-base:#e6f4ff;
+  --lake-a:rgba(70,160,220,.35); --lake-b:rgba(220,245,255,.65);
+  /* Heatmap colors for light ocean */
+  --heatmap-none:rgba(230,244,255,.6); --heatmap-none-border:rgba(16,168,208,.2);
+  --heatmap-l1:rgba(16,168,208,.25); --heatmap-l1-border:rgba(16,168,208,.45);
+  --heatmap-l2:rgba(16,168,208,.45); --heatmap-l2-border:rgba(16,168,208,.65);
+  --heatmap-l3:rgba(16,168,208,.65); --heatmap-l3-border:rgba(16,168,208,.80);
+  --heatmap-l4:rgba(16,168,208,.85); --heatmap-l4-border:#10a8d0;
+  --heatmap-glow:rgba(16,168,208,.25);
 }
 /* ── SAKURA dark ── */
 html[data-theme="sakura"][data-mode="dark"] {
-  --bg:#120818; --bg2:#180c20; --bg3:#1e1028; --bg4:#261534;
-  --border:#2a183a; --border2:#361e4a;
-  --text:#f0d8f5; --text2:#a868c8; --text3:#5a3470;
-  --accent:#e879f9; --accent2:#a21caf; --accent-glow:rgba(232,121,249,.18);
-  --glass-bg:rgba(18,8,25,.72); --glass-border:rgba(232,121,249,.1);
-  --bg-blob-a:rgba(35,10,45,.95); --bg-blob-b:rgba(25,8,35,.9); --bg-blob-c:rgba(15,4,22,.98);
-  --pomo-sky:linear-gradient(180deg,#0a0510,#140a1c,#1c1228);
-  --mt-far:#281040; --mt-mid:#1c0a2e; --mt-near:#12061e; --mt-base:#0a0512;
-  --lake-a:rgba(30,10,50,.7); --lake-b:rgba(10,4,18,.95);
+  --bg:#140a1a; --bg2:#1c1024; --bg3:#241830; --bg4:#2c203c;
+  --border:#342848; --border2:#403058;
+  --text:#f5e0fc; --text2:#c078d8; --text3:#704088;
+  --accent:#f088ff; --accent2:#c038d8; --accent-glow:rgba(240,136,255,.22);
+  --accent-rgb:240, 136, 255;
+  --glass-bg:rgba(20,10,26,.75); --glass-border:rgba(240,136,255,.12);
+  --bg-blob-a:rgba(40,12,50,.92); --bg-blob-b:rgba(28,8,38,.88); --bg-blob-c:rgba(18,6,26,.96);
+  --pomo-sky:linear-gradient(180deg,#0c0614,#140a20,#1c1230);
+  --mt-far:#301848; --mt-mid:#201030; --mt-near:#140a20; --mt-base:#0c0614;
+  --lake-a:rgba(35,12,55,.75); --lake-b:rgba(12,4,20,.96);
+  /* Heatmap colors for dark sakura */
+  --heatmap-none:rgba(36,24,48,.4); --heatmap-none-border:rgba(240,136,255,.15);
+  --heatmap-l1:rgba(240,136,255,.35); --heatmap-l1-border:rgba(240,136,255,.55);
+  --heatmap-l2:rgba(240,136,255,.60); --heatmap-l2-border:rgba(240,136,255,.75);
+  --heatmap-l3:rgba(240,136,255,.80); --heatmap-l3-border:rgba(240,136,255,.90);
+  --heatmap-l4:rgba(240,136,255,.95); --heatmap-l4-border:#f088ff;
+  --heatmap-glow:rgba(240,136,255,.3);
 }
 /* ── SAKURA light ── */
 html[data-theme="sakura"][data-mode="light"] {
-  --bg:#fef8ff; --bg2:#fceeff; --bg3:#f8deff; --bg4:#f4ceff;
-  --border:#e8b8ff; --border2:#dca0ff;
-  --text:#200a28; --text2:#7030a0; --text3:#c080e8;
-  --accent:#a21caf; --accent2:#701080; --accent-glow:rgba(162,28,175,.15);
-  --accent-rgb:162, 28, 175;
-  --glass-bg:rgba(254,244,255,.75); --glass-border:rgba(150,0,200,.1);
-  --glass-highlight:rgba(255,255,255,.5);
-  --bg-blob-a:rgba(255,210,255,.7); --bg-blob-b:rgba(250,230,255,.75); --bg-blob-c:rgba(255,200,250,.78);
-  --pomo-sky:linear-gradient(180deg,#c050d8,#d880e8,#f0b0f8);
-  --mt-far:#7030a0; --mt-mid:#501880; --mt-near:#381560; --mt-base:#f8deff;
-  --lake-a:rgba(180,80,220,.4); --lake-b:rgba(250,215,255,.65);
+  --bg:#fef8ff; --bg2:#fcf0ff; --bg3:#f8e6ff; --bg4:#f4dcff;
+  --border:#e8c8f8; --border2:#dcb8f0;
+  --text:#280a38; --text2:#702888; --text3:#c078d8;
+  --accent:#c038d8; --accent2:#9020a8; --accent-glow:rgba(192,56,216,.18);
+  --accent-rgb:192, 56, 216;
+  --glass-bg:rgba(255,255,255,.85); --glass-border:rgba(192,56,216,.12);
+  --glass-highlight:rgba(255,255,255,.65); --glass-shine:rgba(255,255,255,.5);
+  --bg-blob-a:rgba(250,200,255,.45); --bg-blob-b:rgba(255,225,255,.55); --bg-blob-c:rgba(252,210,255,.5);
+  --pomo-sky:linear-gradient(180deg,#d870e8,#e898f8,#f8c0ff);
+  --mt-far:#a040c8; --mt-mid:#8028a8; --mt-near:#601888; --mt-base:#f8e6ff;
+  --lake-a:rgba(180,70,220,.35); --lake-b:rgba(250,225,255,.65);
+  /* Heatmap colors for light sakura */
+  --heatmap-none:rgba(248,230,255,.6); --heatmap-none-border:rgba(192,56,216,.2);
+  --heatmap-l1:rgba(192,56,216,.25); --heatmap-l1-border:rgba(192,56,216,.45);
+  --heatmap-l2:rgba(192,56,216,.45); --heatmap-l2-border:rgba(192,56,216,.65);
+  --heatmap-l3:rgba(192,56,216,.65); --heatmap-l3-border:rgba(192,56,216,.80);
+  --heatmap-l4:rgba(192,56,216,.85); --heatmap-l4-border:#c038d8;
+  --heatmap-glow:rgba(192,56,216,.25);
 }
 /* ── ARCTIC dark ── */
 html[data-theme="arctic"][data-mode="dark"] {
-  --bg:#070c18; --bg2:#0c1428; --bg3:#121c38; --bg4:#182448;
-  --border:#1a2848; --border2:#20335a;
-  --text:#e0ecff; --text2:#7090cc; --text3:#3a5080;
-  --accent:#a0c8ff; --accent2:#4a80d4; --accent-glow:rgba(160,200,255,.18);
-  --glass-bg:rgba(8,14,32,.68); --glass-border:rgba(180,210,255,.1);
-  --bg-blob-a:rgba(10,20,45,.95); --bg-blob-b:rgba(8,16,38,.9); --bg-blob-c:rgba(5,10,25,.98);
-  --pomo-sky:linear-gradient(180deg,#050810,#080e1c,#0e162e);
-  --mt-far:#182040; --mt-mid:#121830; --mt-near:#0c1020; --mt-base:#050810;
-  --lake-a:rgba(20,40,90,.7); --lake-b:rgba(4,8,20,.95);
+  --bg:#080e1c; --bg2:#0e1828; --bg3:#142438; --bg4:#1a3048;
+  --border:#203858; --border2:#284468;
+  --text:#e8f4ff; --text2:#80b0e0; --text3:#406888;
+  --accent:#b0d8ff; --accent2:#5898d8; --accent-glow:rgba(176,216,255,.22);
+  --accent-rgb:176, 216, 255;
+  --glass-bg:rgba(10,18,36,.75); --glass-border:rgba(176,216,255,.12);
+  --bg-blob-a:rgba(12,24,50,.92); --bg-blob-b:rgba(10,18,42,.88); --bg-blob-c:rgba(6,12,30,.96);
+  --pomo-sky:linear-gradient(180deg,#040a18,#080e24,#0e1838);
+  --mt-far:#1c3058; --mt-mid:#142038; --mt-near:#0c1428; --mt-base:#040a18;
+  --lake-a:rgba(24,48,100,.75); --lake-b:rgba(6,12,28,.96);
+  /* Heatmap colors for dark arctic */
+  --heatmap-none:rgba(20,36,56,.4); --heatmap-none-border:rgba(176,216,255,.15);
+  --heatmap-l1:rgba(176,216,255,.35); --heatmap-l1-border:rgba(176,216,255,.55);
+  --heatmap-l2:rgba(176,216,255,.60); --heatmap-l2-border:rgba(176,216,255,.75);
+  --heatmap-l3:rgba(176,216,255,.80); --heatmap-l3-border:rgba(176,216,255,.90);
+  --heatmap-l4:rgba(176,216,255,.95); --heatmap-l4-border:#b0d8ff;
+  --heatmap-glow:rgba(176,216,255,.3);
 }
 /* ── ARCTIC light ── */
 html[data-theme="arctic"][data-mode="light"] {
-  --bg:#f6f9ff; --bg2:#ecf2ff; --bg3:#e2eaff; --bg4:#d8e2ff;
-  --border:#c0d0ff; --border2:#b0c2ff;
-  --text:#0a1428; --text2:#3060a8; --text3:#7898d8;
-  --accent:#2255cc; --accent2:#1a3e99; --accent-glow:rgba(34,85,204,.15);
-  --accent-rgb:34, 85, 204;
-  --glass-bg:rgba(242,248,255,.75); --glass-border:rgba(0,50,150,.1);
-  --glass-highlight:rgba(255,255,255,.55);
-  --bg-blob-a:rgba(200,220,255,.7); --bg-blob-b:rgba(220,235,255,.75); --bg-blob-c:rgba(185,210,255,.8);
-  --pomo-sky:linear-gradient(180deg,#5882d8,#7aa4f0,#aacaff);
-  --mt-far:#3860c8; --mt-mid:#2848a8; --mt-near:#1a3488; --mt-base:#e2eaff;
-  --lake-a:rgba(80,130,230,.4); --lake-b:rgba(210,228,255,.65);
+  --bg:#f8fcff; --bg2:#f0f8ff; --bg3:#e8f4ff; --bg4:#e0f0ff;
+  --border:#c8e0f8; --border2:#b8d4f0;
+  --text:#0a1c30; --text2:#305880; --text3:#80b0e0;
+  --accent:#3878d0; --accent2:#2058a8; --accent-glow:rgba(56,120,208,.18);
+  --accent-rgb:56, 120, 208;
+  --glass-bg:rgba(255,255,255,.85); --glass-border:rgba(56,120,208,.12);
+  --glass-highlight:rgba(255,255,255,.65); --glass-shine:rgba(255,255,255,.5);
+  --bg-blob-a:rgba(200,230,255,.45); --bg-blob-b:rgba(225,245,255,.55); --bg-blob-c:rgba(210,238,255,.5);
+  --pomo-sky:linear-gradient(180deg,#70a8e8,#98c8f8,#c0e0ff);
+  --mt-far:#4888d0; --mt-mid:#3068b0; --mt-near:#205090; --mt-base:#e8f4ff;
+  --lake-a:rgba(90,150,230,.35); --lake-b:rgba(225,245,255,.65);
+  /* Heatmap colors for light arctic */
+  --heatmap-none:rgba(232,244,255,.6); --heatmap-none-border:rgba(56,120,208,.2);
+  --heatmap-l1:rgba(56,120,208,.25); --heatmap-l1-border:rgba(56,120,208,.45);
+  --heatmap-l2:rgba(56,120,208,.45); --heatmap-l2-border:rgba(56,120,208,.65);
+  --heatmap-l3:rgba(56,120,208,.65); --heatmap-l3-border:rgba(56,120,208,.80);
+  --heatmap-l4:rgba(56,120,208,.85); --heatmap-l4-border:#3878d0;
+  --heatmap-glow:rgba(56,120,208,.25);
 }
 
 /* Default fallback = midnight dark */
-html:not([data-theme]) { --bg:#080c18; --bg2:#0d1428; --bg3:#121d38; --bg4:#172244; --border:#192040; --border2:#1f2c52; --text:#dce8fa; --text2:#6a84aa; --text3:#354c6a; --accent:#4da8ff; --accent2:#1a5fd4; --accent-glow:rgba(77,168,255,.18); --glass-bg:rgba(8,14,30,.72); --glass-border:rgba(255,255,255,.07); --bg-blob-a:rgba(13,28,72,.9); --bg-blob-b:rgba(8,18,50,.8); --bg-blob-c:rgba(5,12,30,.95); --pomo-sky:linear-gradient(180deg,#04080e,#080d1c,#0c1430); --mt-far:#1a2540; --mt-mid:#111830; --mt-near:#0a1020; --mt-base:#04080e; --lake-a:rgba(8,18,55,.7); --lake-b:rgba(3,6,14,.95); }
+html:not([data-theme]) { 
+  --bg:#060a14; --bg2:#0a1020; --bg3:#0f1830; --bg4:#152040; 
+  --border:#1a2548; --border2:#243058; 
+  --text:#e8f0ff; --text2:#7a92c0; --text3:#3d5278; 
+  --accent:#5eb3ff; --accent2:#2680e8; --accent-glow:rgba(94,179,255,.22); 
+  --accent-rgb:94, 179, 255;
+  --glass-bg:rgba(10,16,32,.75); --glass-border:rgba(255,255,255,.09); 
+  --bg-blob-a:rgba(15,32,80,.92); --bg-blob-b:rgba(10,22,58,.88); --bg-blob-c:rgba(6,14,36,.96); 
+  --pomo-sky:linear-gradient(180deg,#030610,#070d1e,#0d1632); 
+  --mt-far:#1e2d50; --mt-mid:#141f3a; --mt-near:#0b1224; --mt-base:#030610; 
+  --lake-a:rgba(10,22,62,.75); --lake-b:rgba(4,8,18,.96);
+  --heatmap-none:rgba(15,24,48,.4); --heatmap-none-border:rgba(94,179,255,.15);
+  --heatmap-l1:rgba(94,179,255,.35); --heatmap-l1-border:rgba(94,179,255,.55);
+  --heatmap-l2:rgba(94,179,255,.60); --heatmap-l2-border:rgba(94,179,255,.75);
+  --heatmap-l3:rgba(94,179,255,.80); --heatmap-l3-border:rgba(94,179,255,.90);
+  --heatmap-l4:rgba(94,179,255,.95); --heatmap-l4-border:#5eb3ff;
+  --heatmap-glow:rgba(94,179,255,.3);
+}
 
 /* ══════════════════════════════════════════════════════════════
    ANIMATED APP BACKGROUND (blobs behind everything)
@@ -607,6 +698,45 @@ a { color: var(--accent); text-decoration: none; }
   height: var(--mobile-nav-h);
   background: rgba(8,12,20,.96);
   backdrop-filter: blur(20px);
+
+/* ══════════════════════════════════════════════════════════════
+   QUICK CAPTURE BUTTON
+══════════════════════════════════════════════════════════════ */
+.quick-capture-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3), 0 0 0 0 var(--accent-glow);
+  transition: all .2s;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quick-capture-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+}
+.quick-capture-btn:active {
+  transform: scale(0.95);
+}
+@media (max-width: 768px) {
+  .quick-capture-btn {
+    bottom: 70px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border);
   z-index: 300;
@@ -782,9 +912,10 @@ a { color: var(--accent); text-decoration: none; }
 .cal-day:hover { background: var(--bg3); color: var(--text); }
 .cal-day.today { background: var(--accent2); color: #fff; font-weight: 700; }
 .cal-day.selected:not(.today) { background: var(--bg3); color: var(--accent); border: 1px solid var(--accent2); }
-.cal-day.has-tasks::after { content: ''; display: block; width: 3px; height: 3px; background: var(--accent); border-radius: 50%; margin: 1px auto 0; }
 .cal-day.other-month { color: var(--text3); }
 .cal-day.has-habits::before { content: ''; position: absolute; top: 2px; right: 2px; width: 3.5px; height: 3.5px; background: var(--green); border-radius: 50%; }
+.cal-dots { display: flex; gap: 1px; justify-content: center; margin-top: 1px; }
+.cal-dots span { width: 2.5px; height: 2.5px; border-radius: 50%; }
 
 .sidebar-view-toggle { display: flex; gap: 3px; margin-bottom: 12px; }
 .svt-btn { flex: 1; padding: 5px; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; color: var(--text2); font-size: 10px; transition: all var(--transition); font-family: var(--font-body); }
@@ -889,6 +1020,10 @@ a { color: var(--accent); text-decoration: none; }
   background: linear-gradient(135deg, rgba(26,95,212,.12), rgba(156,120,255,.06));
   border: 1px solid rgba(77,168,255,.3) !important;
   animation: doNowPulse 2.8s ease-in-out infinite;
+}
+.task-card.energy-match {
+  border-left: 3px solid var(--green);
+  background: linear-gradient(135deg, rgba(52,209,132,.08), var(--glass-bg));
 }
 @keyframes doNowPulse { 0%,100%{box-shadow: 0 0 0 0 rgba(26,95,212,.18);} 50%{box-shadow: 0 0 0 8px rgba(26,95,212,0);} }
 [data-quality="fast"] .task-card.do-now-card { animation: none; }
@@ -1232,17 +1367,17 @@ body.zen-active .zen-exit-btn {
 .heatmap-cell { 
   height: 16px; 
   border-radius: 3px; 
-  background: var(--bg3); 
+  background: var(--heatmap-none, var(--bg3)); 
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
   cursor: pointer; 
   position: relative;
-  border: 1px solid var(--border2);
+  border: 1px solid var(--heatmap-none-border, var(--border2));
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 .heatmap-cell:hover {
   transform: scale(1.15);
   z-index: 5;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--heatmap-glow, rgba(0, 0, 0, 0.3));
 }
 .heatmap-cell:hover::after { 
   content: attr(data-tip); 
@@ -1262,21 +1397,24 @@ body.zen-active .zen-exit-btn {
   font-weight: 500;
 }
 .heatmap-cell.l1 { 
-  background: rgba(var(--accent-rgb), 0.25); 
-  border-color: rgba(var(--accent-rgb), 0.4);
+  background: var(--heatmap-l1, rgba(var(--accent-rgb), 0.30)); 
+  border-color: var(--heatmap-l1-border, rgba(var(--accent-rgb), 0.50));
+  box-shadow: 0 0 6px var(--heatmap-glow, rgba(var(--accent-rgb), 0.15));
 }
 .heatmap-cell.l2 { 
-  background: rgba(var(--accent-rgb), 0.50); 
-  border-color: rgba(var(--accent-rgb), 0.6);
+  background: var(--heatmap-l2, rgba(var(--accent-rgb), 0.55)); 
+  border-color: var(--heatmap-l2-border, rgba(var(--accent-rgb), 0.70));
+  box-shadow: 0 0 8px var(--heatmap-glow, rgba(var(--accent-rgb), 0.25));
 }
 .heatmap-cell.l3 { 
-  background: rgba(var(--accent-rgb), 0.75); 
-  border-color: rgba(var(--accent-rgb), 0.8);
+  background: var(--heatmap-l3, rgba(var(--accent-rgb), 0.78)); 
+  border-color: var(--heatmap-l3-border, rgba(var(--accent-rgb), 0.88));
+  box-shadow: 0 0 10px var(--heatmap-glow, rgba(var(--accent-rgb), 0.35));
 }
 .heatmap-cell.l4 { 
-  background: rgba(var(--accent-rgb), 0.95); 
-  border-color: var(--accent);
-  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: var(--heatmap-l4, rgba(var(--accent-rgb), 0.95)); 
+  border-color: var(--heatmap-l4-border, var(--accent));
+  box-shadow: 0 0 12px var(--heatmap-glow, rgba(var(--accent-rgb), 0.45)), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 /* Heatmap Legend */
 .heatmap-legend {
@@ -2188,22 +2326,8 @@ body.study-active .study-mode-hud { display: flex; }
       </div>
     </div>
 
-    <!-- Step 2: Carry-over -->
+    <!-- Step 2: Intentions -->
     <div class="ritual-step" id="rStep1">
-      <div class="ritual-header">
-        <div class="step-badge">Yesterday's Unfinished</div>
-        <h2>What carries forward?</h2>
-        <p>Select tasks to bring into today. Unselected ones stay where they are.</p>
-      </div>
-      <div class="carryover-list" id="carryoverList"></div>
-      <div class="ritual-actions">
-        <button class="ritual-skip" onclick="ritualPrev()">← Back</button>
-        <button class="ritual-next" onclick="ritualNext()">Continue →</button>
-      </div>
-    </div>
-
-    <!-- Step 3: Intentions -->
-    <div class="ritual-step" id="rStep2">
       <div class="ritual-header">
         <div class="step-badge">Top 3 Intentions</div>
         <h2>What matters most today?</h2>
@@ -2216,30 +2340,9 @@ body.study-active .study-mode-hud { display: flex; }
       </div>
       <div class="ritual-actions">
         <button class="ritual-skip" onclick="ritualPrev()">← Back</button>
-        <button class="ritual-next" onclick="ritualNext()">Continue →</button>
+        <button class="ritual-next" onclick="ritualComplete()">Start Day →</button>
       </div>
     </div>
-
-    <!-- Step 4: Gratitude -->
-    <div class="ritual-step" id="rStep3">
-      <div class="ritual-header">
-        <div class="step-badge">Gratitude Moment</div>
-        <h2>One thing you're grateful for?</h2>
-        <p>30 seconds of gratitude improves focus and reduces cortisol.</p>
-      </div>
-      <textarea class="form-textarea" id="gratitudeInput" placeholder="Today I'm grateful for…" style="min-height:90px;margin-bottom:16px;background:var(--glass-bg);border-color:var(--glass-border);color:var(--text)"></textarea>
-      <div class="ritual-actions">
-        <button class="ritual-skip" onclick="ritualPrev()">← Back</button>
-        <button class="ritual-next" onclick="ritualNext()">Continue →</button>
-      </div>
-    </div>
-
-    <!-- Step 5: Summary -->
-    <div class="ritual-step" id="rStep4">
-      <div class="ritual-header">
-        <div class="step-badge">Ready</div>
-        <h2>You're set for the day.</h2>
-        <p>Here are your intentions and today's guiding thought.</p>
       </div>
       <div id="ritualIntentionSummary"></div>
       <div class="ritual-quote" id="ritualQuote"></div>
@@ -2252,7 +2355,7 @@ body.study-active .study-mode-hud { display: flex; }
 
 <!-- ══ TOP NAV ══ -->
 <nav class="nav">
-  <div class="nav-logo">Zenith <sup>v5</sup></div>
+  <div class="nav-logo">Zenith <sup>v9.5</sup></div>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="switchView('tasks',this)">📋 Tasks</button>
     <button class="nav-tab" onclick="switchView('pomodoro',this)">🍅 Focus</button>
@@ -2300,6 +2403,11 @@ body.study-active .study-mode-hud { display: flex; }
     </button>
   </div>
 </nav>
+
+<!-- ══ QUICK CAPTURE BUTTON ══ -->
+<button class="quick-capture-btn" onclick="openQuickCapture()" title="Quick add task (Q)" aria-label="Quick add task">
+  <span>+</span>
+</button>
 
 <!-- ══════════ TASKS VIEW ══════════ -->
 <div id="view-tasks" class="view active">
@@ -2353,9 +2461,10 @@ body.study-active .study-mode-hud { display: flex; }
           <div class="stat-bar"><div class="stat-bar-fill" id="statRateBar" style="width:0%"></div></div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Streak</div>
-          <div class="stat-val" id="statStreak">0 🔥</div>
-          <div class="stat-sub">days productive</div>
+          <div class="stat-label">Energy Budget</div>
+          <div class="stat-val" id="statEnergyBudget">0/0</div>
+          <div class="stat-bar"><div class="stat-bar-fill" id="statEnergyBar" style="width:0%"></div></div>
+          <div class="stat-sub" id="statEnergySub">points used</div>
         </div>
       </div>
     </aside>
@@ -2410,6 +2519,9 @@ body.study-active .study-mode-hud { display: flex; }
           </div>
           <button class="smb-close" onclick="document.getElementById('studyBanner').classList.remove('visible')">✕</button>
         </div>
+        
+        <!-- Smart Suggestions Container (Phase 5) -->
+        <div id="smartSuggestionsContainer" style="margin-bottom:16px; display:none;"></div>
         
         <!-- Goals Quick Panel for Tasks Integration -->
         <div id="goalsQuickPanel" style="margin-bottom:16px; display:none;">
@@ -2618,6 +2730,11 @@ body.study-active .study-mode-hud { display: flex; }
       <p style="font-size:11px; color:var(--text2); margin-bottom:16px;">Tasks linked to a high-level goal = <em>aligned</em>. Random tasks with no parent goal = <em>orphan</em>. If you're mostly busy with orphans, you're productive but not purposeful.</p>
       <div id="orphanTrackerWrap"></div>
     </div>
+    <div class="analytics-section" id="patternInsightsSection">
+      <h3>📊 Productivity Patterns (Phase 5)</h3>
+      <p style="font-size:11px; color:var(--text2); margin-bottom:16px;">Zenith learns from your behavior to help you work smarter.</p>
+      <div id="patternInsightsWrap"></div>
+    </div>
   </div>
 </div>
 
@@ -2705,6 +2822,16 @@ body.study-active .study-mode-hud { display: flex; }
       </div>
     </div>
     
+    <div class="form-group">
+      <label class="form-label" style="color:var(--accent); font-weight: 600; font-size:13px;">🎯 Which goal does this support?</label>
+      <select class="form-select" id="taskParentInput" style="border-color:var(--accent-glow); cursor: pointer; font-size:13px; padding:10px;">
+        <option value="">⚠️ No Goal (Orphan Task)</option>
+        </select>
+      <div id="orphanWarning" style="display:none; margin-top:6px; padding:8px; background:rgba(255,186,59,0.1); border-left:3px solid var(--yellow); border-radius:4px; font-size:11px; color:var(--text2);">
+        💡 Orphan tasks are 40% less likely to be completed. Link this to a goal for better focus!
+      </div>
+    </div>
+    
     <div class="form-row">
       <div class="form-group">
         <label class="form-label">Date</label>
@@ -2714,13 +2841,6 @@ body.study-active .study-mode-hud { display: flex; }
         <label class="form-label">Category</label>
         <input class="form-input" id="taskCategoryInput" placeholder="Work, Study…"/>
       </div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" style="color:var(--accent); font-weight: 500;">Link to Goal (Alignment)</label>
-      <select class="form-select" id="taskParentInput" style="border-color:var(--accent-glow); cursor: pointer;">
-        <option value="">No Parent (Orphan Task)</option>
-        </select>
     </div>
 
     <div class="form-row">
@@ -2741,6 +2861,24 @@ body.study-active .study-mode-hud { display: flex; }
       <div id="breakdownWarning" style="display:none; margin-top:6px; padding:8px; background:rgba(255,186,59,0.1); border-left:3px solid var(--yellow); border-radius:4px; font-size:11px; color:var(--text2);">
         ⚠️ This task is quite long (>2 hours). Consider breaking it into smaller subtasks for better focus.
       </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Repeat</label>
+      <select class="form-select" id="taskRepeatInput">
+        <option value="">No repeat</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Blocked By (Dependencies)</label>
+      <select class="form-select" id="taskBlockedByInput">
+        <option value="">No dependencies</option>
+      </select>
+      <div style="font-size:10px; color:var(--text3); margin-top:4px;">This task will be grayed out until the blocker is completed</div>
     </div>
     
     <div class="form-group">
@@ -3072,6 +3210,11 @@ let morningRitualData = safeJSONParse('z3_morning_ritual', {}); // { date: { ene
 let goalHealthScores = safeJSONParse('z3_goal_health', {}); // { goalId: { score, status, lastActivity } }
 let habitImpactData = safeJSONParse('z3_habit_impact', {}); // { habitId: { correlations: { productivity: 0.23, focus: 0.15 } } }
 
+// Phase 5: Smart Suggestions & Intelligence
+let patternInsights = safeJSONParse('z3_pattern_insights', {}); // { weekdayPatterns, completionRates, deferPatterns, estimationAccuracy }
+let smartSuggestions = []; // Active suggestions shown to user
+let lastSuggestionCheck = null; // Timestamp of last suggestion generation
+
 // Life Areas Definition
 const LIFE_AREAS = [
   { id: 'health', name: 'Health', icon: '💪', color: '#34d184' },
@@ -3380,36 +3523,41 @@ function updateRitualProgress() {
 function ritualNext() {
   if (ritualStep===0 && !ritualEnergy) { showToast('Pick your energy level first','error'); return; }
   
-  if (ritualStep===3) { // Intentions
-    const intentions = ['int1','int2','int3'].map(id => document.getElementById(id).value.trim()).filter(Boolean);
-    localStorage.setItem('z3_intentions_'+fmtDate(new Date()), JSON.stringify(intentions));
-    
-    const gratInput = document.getElementById('gratitudeInput');
-    const grat = gratInput ? gratInput.value.trim() : '';
-    if(grat) localStorage.setItem('z3_gratitude_'+fmtDate(new Date()), grat);
-
-    const sumEl = document.getElementById('ritualIntentionSummary');
-    sumEl.innerHTML = intentions.length
-      ? `<div style="background:var(--glass-bg);border-radius:8px;padding:12px;text-align:left;margin-bottom:14px"><div style="font-size:10px;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.6px">Today's Intentions</div>${intentions.map((t,i)=>`<div style="font-size:12.5px;padding:3px 0;display:flex;gap:8px;align-items:center"><span style="color:var(--accent2);font-weight:700">${i+1}.</span>${t}</div>`).join('')}</div>` : '';
-    
-    if(grat) {
-       sumEl.innerHTML += `<div style="background:var(--glass-bg);border-radius:8px;padding:12px;text-align:left;margin-bottom:14px"><div style="font-size:10px;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.6px">Gratitude</div><div style="font-size:12.5px;padding:3px 0;">🙏 ${grat}</div></div>`;
-    }
-    document.getElementById('ritualQuote').textContent = QUOTES[Math.floor(Math.random()*QUOTES.length)];
-  }
-  
-  if (ritualStep < 4) {
+  if (ritualStep < 1) {
     document.getElementById(`rStep${ritualStep}`).classList.remove('active');
     ritualStep++;
     document.getElementById(`rStep${ritualStep}`).classList.add('active');
     
-    // Update dots (5 steps now)
-    document.getElementById('ritualProgress').innerHTML = Array.from({length:5}, (_,i) =>
+    // Update dots (2 steps now)
+    document.getElementById('ritualProgress').innerHTML = Array.from({length:2}, (_,i) =>
       `<div class="ritual-dot ${i<ritualStep?'done':i===ritualStep?'active':''}"></div>`
     ).join('');
-    
-    if (ritualStep===1) populateCarryover();
   }
+}
+
+function ritualComplete() {
+  // Save intentions
+  const intentions = ['int1','int2','int3'].map(id => document.getElementById(id).value.trim()).filter(Boolean);
+  localStorage.setItem('z3_intentions_'+fmtDate(new Date()), JSON.stringify(intentions));
+  
+  // Auto-carry incomplete tasks from yesterday
+  const yesterday = fmtDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()-1));
+  const unfinished = tasks.filter(t => t.date===yesterday && !t.completed);
+  const today = fmtDate(new Date());
+  unfinished.forEach(t => {
+    t.date = today;
+  });
+  if (unfinished.length > 0) {
+    showToast(`Carried forward ${unfinished.length} task${unfinished.length>1?'s':''} from yesterday`, 'success');
+  }
+  
+  // Complete ritual
+  todayEnergy = ritualEnergy;
+  localStorage.setItem('z3_energy_'+fmtDate(new Date()), todayEnergy);
+  document.getElementById('ritualOverlay').classList.add('hidden');
+  renderTasks();
+  renderSidebarStats();
+  showToast(`Energy set to ${todayEnergy}. Let's make today count!`, 'success');
 }
 function ritualPrev() {
   if (ritualStep > 0) {
@@ -3446,6 +3594,11 @@ function selectEnergy(level, el) {
   ritualEnergy = level;
   document.querySelectorAll('.ritual-step.active .energy-opt').forEach(e=>e.classList.remove('selected'));
   el.classList.add('selected');
+  
+  // Track energy pattern
+  const hour = new Date().getHours();
+  const timeOfDay = hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening';
+  trackEnergyPattern(level, timeOfDay);
 }
 
 function finishRitual() {
@@ -3546,18 +3699,26 @@ function renderCalendar() {
   document.getElementById('calMonthYear').textContent=`${mNames[m]} ${y}`;
   const first=new Date(y,m,1), last=new Date(y,m+1,0), startDay=first.getDay();
   const today=fmtDate(new Date());
-  const taskDates=new Set(tasks.map(t=>t.date));
+  const tasksByDate={};
+  tasks.forEach(t=>{
+    if(!tasksByDate[t.date]) tasksByDate[t.date]={critical:0,high:0,medium:0,low:0};
+    tasksByDate[t.date][t.priority]++;
+  });
   const habitDates=new Set(Object.values(habitLogs).flatMap(arr=>arr));
 
   let html=['Su','Mo','Tu','We','Th','Fr','Sa'].map(d=>`<div class="cal-day-name">${d}</div>`).join('');
   for (let i=0;i<startDay;i++) {
     const d=new Date(y,m,1-startDay+i), ds=fmtDate(d);
-    html+=`<div class="cal-day other-month ${taskDates.has(ds)?'has-tasks':''}" onclick="selectCalDay('${ds}')">${d.getDate()}</div>`;
+    const hasTasks=tasksByDate[ds];
+    const dots=hasTasks?`<div class="cal-dots">${hasTasks.critical?'<span style="background:var(--red)"></span>':''}${hasTasks.high?'<span style="background:var(--orange)"></span>':''}${hasTasks.medium?'<span style="background:var(--yellow)"></span>':''}${hasTasks.low?'<span style="background:var(--green)"></span>':''}</div>`:'';
+    html+=`<div class="cal-day other-month ${hasTasks?'has-tasks':''}" onclick="selectCalDay('${ds}')">${d.getDate()}${dots}</div>`;
   }
   for (let d=1;d<=last.getDate();d++) {
     const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const cls=['cal-day',ds===today?'today':'',ds===selectedDate&&ds!==today?'selected':'',taskDates.has(ds)?'has-tasks':'',habitDates.has(ds)?'has-habits':''].filter(Boolean).join(' ');
-    html+=`<div class="${cls}" onclick="selectCalDay('${ds}')">${d}</div>`;
+    const hasTasks=tasksByDate[ds];
+    const dots=hasTasks?`<div class="cal-dots">${hasTasks.critical?'<span style="background:var(--red)"></span>':''}${hasTasks.high?'<span style="background:var(--orange)"></span>':''}${hasTasks.medium?'<span style="background:var(--yellow)"></span>':''}${hasTasks.low?'<span style="background:var(--green)"></span>':''}</div>`:'';
+    const cls=['cal-day',ds===today?'today':'',ds===selectedDate&&ds!==today?'selected':'',hasTasks?'has-tasks':'',habitDates.has(ds)?'has-habits':''].filter(Boolean).join(' ');
+    html+=`<div class="${cls}" onclick="selectCalDay('${ds}')">${d}${dots}</div>`;
   }
   document.getElementById('miniCal').innerHTML=html;
   renderSidebarStats();
@@ -3575,6 +3736,18 @@ function renderSidebarStats() {
   document.getElementById('statRate').textContent=rate+'%';
   document.getElementById('statRateBar').style.width=rate+'%';
 
+  // Energy Budget Calculation
+  const energyPoints = {deep: 8, medium: 5, light: 3};
+  const maxPoints = 40; // 8 hours * 5 average points
+  const incompleteTasks = todayTasks.filter(t => !t.completed);
+  const usedPoints = incompleteTasks.reduce((sum, t) => sum + (energyPoints[t.energyType] || 5), 0);
+  const energyPct = Math.min((usedPoints / maxPoints) * 100, 100);
+  
+  document.getElementById('statEnergyBudget').textContent = `${usedPoints}/${maxPoints}`;
+  document.getElementById('statEnergyBar').style.width = energyPct + '%';
+  document.getElementById('statEnergyBar').style.background = energyPct > 90 ? 'var(--red)' : energyPct > 75 ? 'var(--orange)' : 'var(--green)';
+  document.getElementById('statEnergySub').textContent = energyPct > 90 ? 'overbooked!' : 'points used';
+
   // Streak: consecutive days with at least 1 completed task
   let streak=0;
   for (let i=0;i<60;i++) {
@@ -3583,7 +3756,6 @@ function renderSidebarStats() {
     if (tasks.some(t=>t.date===ds&&t.completed)) streak++;
     else if (i>0) break;
   }
-  document.getElementById('statStreak').textContent=streak+' 🔥';
   // Calculate Focus Score (Completed Tasks * 10 + Pomodoros * 15 - Defers * 5)
   let fScore = 0;
   tasks.forEach(t => {
@@ -4242,6 +4414,11 @@ function taskCard(t) {
       </div>
     </div>`;
   }
+  
+  // Check if task is blocked by another task
+  const isBlocked = t.blockedBy && !t.completed && tasks.find(blocker => blocker.id === t.blockedBy && !blocker.completed);
+  const blockerTask = isBlocked ? tasks.find(blocker => blocker.id === t.blockedBy) : null;
+  
   const isDoNow = t.id===doNowTaskId;
   const deferBadge = t.deferCount>0 ? `<span class="defer-count-badge">↩${t.deferCount}×</span>` : '';
   const timePart = t.startTime ? `<span class="task-tag time">${sanitizeHTML(t.startTime)}${t.endTime?'–'+sanitizeHTML(t.endTime):''}</span>` : '';
@@ -4251,6 +4428,11 @@ function taskCard(t) {
   const catTag = t.category ? `<span class="task-tag category">${sanitizeHTML(t.category)}</span>` : '';
   const subtaskCount = t.subtasks&&t.subtasks.length>0 ? `<span class="task-tag subtask">${t.subtasks.filter(s=>s.done).length}/${t.subtasks.length} steps</span>` : '';
   const pomoTag = t.pomoSessions>0 ? `<span class="task-tag time">🍅×${t.pomoSessions}</span>` : '';
+  
+  // Pomodoro estimation
+  const estimatedPomos = t.duration ? Math.ceil(t.duration / 25) : 0;
+  const remainingPomos = estimatedPomos > t.pomoSessions ? estimatedPomos - t.pomoSessions : 0;
+  const pomoEstimate = remainingPomos > 0 && !t.completed ? `<span class="task-tag" style="background:rgba(255,126,58,0.15); color:var(--orange); border:1px solid var(--orange);">~${remainingPomos} 🍅 left</span>` : '';
 
   const subtasksHtml = t.subtasks&&t.subtasks.length>0
     ? `<div class="subtask-list">${t.subtasks.map(s=>`<div class="subtask-row"><div class="subtask-check ${s.done?'done':''}" onclick="event.stopPropagation();toggleSubtask('${escapeAttr(t.id)}','${escapeAttr(s.id)}')"></div><span class="subtask-text ${s.done?'done':''}">${sanitizeHTML(s.text)}</span></div>`).join('')}</div>` : '';
@@ -4258,13 +4440,22 @@ function taskCard(t) {
   // Goal badge - show which goal this task contributes to
   const linkedGoal = t.parentId ? goals.find(g => g.id === t.parentId) : null;
   const goalBadge = linkedGoal ? `<span class="task-tag goal-link" style="background:rgba(77,168,255,0.15); color:var(--accent); border:1px solid var(--accent);" title="Part of: ${escapeAttr(linkedGoal.title)}">${linkedGoal.icon||'🎯'} ${sanitizeHTML(linkedGoal.title)}</span>` : '';
+  
+  // Blocked badge
+  const blockedBadge = isBlocked ? `<span class="task-tag" style="background:rgba(255,78,91,0.15); color:var(--red); border:1px solid var(--red);" title="Blocked by: ${escapeAttr(blockerTask.title)}">🔒 Blocked</span>` : '';
+  
+  // Energy match indicator
+  const eMatch={high:'deep',medium:'medium',low:'light'}[todayEnergy||''];
+  const isEnergyMatch = eMatch && t.energyType === eMatch;
+  const energyMatchBadge = isEnergyMatch && !t.completed ? `<span class="task-tag" style="background:rgba(52,209,132,0.15); color:var(--green); border:1px solid var(--green);">⚡ Energy Match</span>` : '';
 
-return `<div class="task-card ${t.completed?'completed':''} ${t.deferCount>0?'deferred-flag':''} ${isDoNow?'do-now-card':''} ${t.isOneThing?'one-thing-target':''}" 
+return `<div class="task-card ${t.completed?'completed':''} ${t.deferCount>0?'deferred-flag':''} ${isDoNow?'do-now-card':''} ${t.isOneThing?'one-thing-target':''} ${isEnergyMatch&&!t.completed?'energy-match':''} ${isBlocked?'blocked':''}" 
     onclick="openDetail('${escapeAttr(t.id)}')" 
     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDetail('${escapeAttr(t.id)}');}"
     tabindex="0"
     role="button"
-    aria-label="Task: ${escapeAttr(t.title)}${t.completed ? ', completed' : ''}"
+    aria-label="Task: ${escapeAttr(t.title)}${t.completed ? ', completed' : ''}${isBlocked ? ', blocked' : ''}"
+    style="${isBlocked ? 'opacity:0.5; pointer-events:none;' : ''}"
   >
     <div class="task-priority-bar ${t.priority}"></div>
     <div class="task-check" 
@@ -4276,13 +4467,13 @@ return `<div class="task-card ${t.completed?'completed':''} ${t.deferCount>0?'de
       aria-label="${t.completed ? 'Mark as incomplete' : 'Mark as complete'}"
     ><div class="task-check-inner"></div></div>
     <div class="task-body">
-      <div class="task-title">${sanitizeHTML(t.title)}${deferBadge}${t.isQuickWin && !t.completed ? '<span class="quick-win-badge" style="margin-left:8px;">⚡ Quick Win</span>' : ''}</div>
-      <div class="task-meta">${timePart}${durationPart}${priorityTag}${energyTag}${catTag}${subtaskCount}${pomoTag}${goalBadge}</div>
+      <div class="task-title">${sanitizeHTML(t.title)}${deferBadge}${t.isQuickWin && !t.completed ? '<span class="quick-win-badge" style="margin-left:8px;">⚡ Quick Win</span>' : ''}${energyMatchBadge}${blockedBadge}</div>
+      <div class="task-meta">${timePart}${durationPart}${priorityTag}${energyTag}${catTag}${subtaskCount}${pomoTag}${pomoEstimate}${goalBadge}</div>
       ${subtasksHtml}
     </div>
     <div class="task-actions" onclick="event.stopPropagation()">
         ${t.deferCount > 0 && (!t.subtasks || t.subtasks.length === 0) ? `<button class="task-action-btn" onclick="event.stopPropagation(); getUnstuck('${escapeAttr(t.id)}')" style="color:var(--orange)" title="Break it down" aria-label="Break down task">🧊 I'm Stuck</button>` : ''}
-      <button class="task-action-btn start-focus" onclick="startFocusOnTask('${escapeAttr(t.id)}')" title="Start Focus" aria-label="Start pomodoro focus">🍅</button>
+      <button class="task-action-btn start-focus" onclick="startFocusOnTask('${escapeAttr(t.id)}')" title="Start Focus Session" aria-label="Start pomodoro focus">🍅 Focus</button>
       <button class="task-action-btn" onclick="editTask('${escapeAttr(t.id)}')" title="Edit" aria-label="Edit task">✏️</button>
       <button class="task-action-btn" onclick="openNotToday('${escapeAttr(t.id)}')" title="Not Today" aria-label="Defer task">😮‍💨</button>
       <button class="task-action-btn" onclick="openReschedule('${escapeAttr(t.id)}')" title="Reschedule" aria-label="Reschedule task">📅</button>
@@ -4311,6 +4502,29 @@ function updateInboxBadge() {
 // ══════════════════════════════════════════════════════════════
 // TASKS — CRUD
 // ══════════════════════════════════════════════════════════════
+
+function openQuickCapture() {
+  const title = prompt('Quick add task:');
+  if (!title || !title.trim()) return;
+  
+  tasks.push({
+    id: genId(),
+    title: title.trim(),
+    priority: 'medium',
+    energyType: 'medium',
+    date: fmtDate(new Date()),
+    subtasks: [],
+    completed: false,
+    deferCount: 0,
+    createdAt: new Date().toISOString()
+  });
+  
+  saveAll();
+  renderTasks();
+  renderCalendar();
+  showToast('Task added! ⚡');
+}
+
 function openAddTask() {
   editingTaskId=null;
   editingSubtasks=[];
@@ -4322,17 +4536,32 @@ function openAddTask() {
   document.getElementById('taskStartInput').value='';
   document.getElementById('taskEndInput').value='';
   document.getElementById('taskDurInput').value='';
+  document.getElementById('taskRepeatInput').value='';
   document.getElementById('modalSubtaskList').innerHTML='';
-  selectedPriority='critical';
+  selectedPriority='medium';
   selectedEnergyType='medium';
-  document.querySelectorAll('.ps-btn').forEach(b=>b.classList.toggle('active',b.dataset.p==='critical'));
+  document.querySelectorAll('.ps-btn').forEach(b=>b.classList.toggle('active',b.dataset.p==='medium'));
   document.querySelectorAll('.et-btn').forEach(b=>b.classList.toggle('active',b.dataset.e==='medium'));
   
-  // Populate Parent Goals with hierarchy context
-  const levelLabels = { lifearea:'Life Area', quarterly:'Quarterly', monthly:'Monthly', weekly:'Weekly' };
-  document.getElementById('taskParentInput').innerHTML = `<option value="">No Parent (Orphan Task)</option>` + 
-    goals.map(g => `<option value="${g.id}">[${levelLabels[g.nodeType]||g.nodeType}] ${g.title}</option>`).join('');
+  // Populate Parent Goals with hierarchy context (filter out life areas)
+  const levelLabels = { quarterly:'Quarterly', monthly:'Monthly', weekly:'Weekly' };
+  const activeGoals = goals.filter(g => g.nodeType !== 'lifearea');
+  document.getElementById('taskParentInput').innerHTML = `<option value="">⚠️ No Goal (Orphan Task)</option>` + 
+    activeGoals.map(g => `<option value="${g.id}">[${levelLabels[g.nodeType]||g.nodeType}] ${g.icon||'🎯'} ${g.title}</option>`).join('');
   document.getElementById('taskParentInput').value = '';
+  
+  // Add orphan warning listener
+  document.getElementById('taskParentInput').onchange = function() {
+    const warning = document.getElementById('orphanWarning');
+    warning.style.display = this.value ? 'none' : 'block';
+  };
+  document.getElementById('orphanWarning').style.display = 'block';
+  
+  // Populate Blocked By dropdown with incomplete tasks
+  const incompleteTasks = tasks.filter(t => !t.completed && t.date <= fmtDate(new Date()));
+  document.getElementById('taskBlockedByInput').innerHTML = `<option value="">No dependencies</option>` + 
+    incompleteTasks.map(t => `<option value="${t.id}">${t.title}</option>`).join('');
+  document.getElementById('taskBlockedByInput').value = '';
   
   // TRIGGER THE SUGGESTION ENGINE
   updateTaskSuggestions();
@@ -4405,15 +4634,31 @@ function editTask(id) {
   document.getElementById('taskStartInput').value=t.startTime||'';
   document.getElementById('taskEndInput').value=t.endTime||'';
   document.getElementById('taskDurInput').value=t.duration||'';
+  document.getElementById('taskRepeatInput').value=t.repeat||'';
   selectedPriority=t.priority||'medium';
   selectedEnergyType=t.energyType||'medium';
   document.querySelectorAll('.ps-btn').forEach(b=>b.classList.toggle('active',b.dataset.p===selectedPriority));
   document.querySelectorAll('.et-btn').forEach(b=>b.classList.toggle('active',b.dataset.e===selectedEnergyType));
   renderModalSubtasks();
-  const levelLabels2 = { lifearea:'Life Area', quarterly:'Quarterly', monthly:'Monthly', weekly:'Weekly' };
-  document.getElementById('taskParentInput').innerHTML = `<option value="">No Parent (Orphan Task)</option>` + 
-    goals.map(g => `<option value="${g.id}">[${levelLabels2[g.nodeType]||g.nodeType}] ${g.title}</option>`).join('');
+  const levelLabels2 = { quarterly:'Quarterly', monthly:'Monthly', weekly:'Weekly' };
+  const activeGoals = goals.filter(g => g.nodeType !== 'lifearea');
+  document.getElementById('taskParentInput').innerHTML = `<option value="">⚠️ No Goal (Orphan Task)</option>` + 
+    activeGoals.map(g => `<option value="${g.id}">[${levelLabels2[g.nodeType]||g.nodeType}] ${g.icon||'🎯'} ${g.title}</option>`).join('');
   document.getElementById('taskParentInput').value = t.parentId || '';
+  
+  // Add orphan warning listener
+  document.getElementById('taskParentInput').onchange = function() {
+    const warning = document.getElementById('orphanWarning');
+    warning.style.display = this.value ? 'none' : 'block';
+  };
+  document.getElementById('orphanWarning').style.display = t.parentId ? 'none' : 'block';
+  
+  // Populate Blocked By dropdown
+  const incompleteTasks = tasks.filter(task => !task.completed && task.date <= fmtDate(new Date()) && task.id !== id);
+  document.getElementById('taskBlockedByInput').innerHTML = `<option value="">No dependencies</option>` + 
+    incompleteTasks.map(task => `<option value="${task.id}">${task.title}</option>`).join('');
+  document.getElementById('taskBlockedByInput').value = t.blockedBy || '';
+  
   openModal('taskModal');
 }
 
@@ -4450,6 +4695,8 @@ function saveTask() {
   if (!title) { showToast('Enter a task title','error'); return; }
  // Get and parse duration to ensure it's a number
   const durValue = parseInt(document.getElementById('taskDurInput').value) || 30;
+  const repeatValue = document.getElementById('taskRepeatInput').value;
+  const blockedByValue = document.getElementById('taskBlockedByInput').value;
 
   const data = {
     id: editingTaskId || genId(),
@@ -4458,18 +4705,38 @@ function saveTask() {
     date: document.getElementById('taskDateInput').value || selectedDate,
     priority: selectedPriority,
     energyType: selectedEnergyType,
-    duration: durValue, // FIX: Always save as a number
+    duration: durValue,
     isQuickWin: (durValue <= 5), 
     category: document.getElementById('taskCategoryInput').value,
     parentId: document.getElementById('taskParentInput').value || null,
     startTime: document.getElementById('taskStartInput').value,
     endTime: document.getElementById('taskEndInput').value,
     subtasks: editingSubtasks,
+    repeat: repeatValue || null,
+    blockedBy: blockedByValue || null,
     completed: false,
     pomoSessions: 0,
     actualTime: 0,
     createdAt: new Date().toISOString()
   };
+  
+  // Energy budget check (only for today's tasks)
+  const today = fmtDate(new Date());
+  if (data.date === today && !editingTaskId) {
+    const energyPoints = {deep: 8, medium: 5, light: 3};
+    const taskPoints = energyPoints[data.energyType] || 5;
+    
+    const todayTasks = tasks.filter(t => t.date === today && !t.completed);
+    const currentPoints = todayTasks.reduce((sum, t) => sum + (energyPoints[t.energyType] || 5), 0);
+    const maxPoints = 40; // 8 hours * 5 points average
+    
+    if (currentPoints + taskPoints > maxPoints) {
+      const overBy = currentPoints + taskPoints - maxPoints;
+      if (!confirm(`⚠️ Energy Budget Warning\n\nAdding this task will exceed your daily energy budget by ${overBy} points.\n\nConsider:\n• Moving it to tomorrow\n• Reducing task complexity\n• Removing a lower-priority task\n\nAdd anyway?`)) {
+        return;
+      }
+    }
+  }
  
   if (editingTaskId) {
     const t=tasks.find(x=>x.id===editingTaskId);
@@ -4503,13 +4770,38 @@ function confirmComplete() {
   else playTactileSound('click');
 
   t.completed=true; t.completedAt=new Date().toISOString();
-  // ... (rest of your existing code)
-  
-  
   t.actualTime=document.getElementById('actualTimeInput').value;
   t.mood=selectedMood;
   t.completionNotes=document.getElementById('completionNotesInput').value;
   t.resources=document.getElementById('completionResourcesInput').value;
+  
+  // Learn from task duration
+  if (t.actualTime && t.duration) {
+    learnTaskDuration(t.title, parseInt(t.duration), parseInt(t.actualTime));
+  }
+  
+  // Create next recurring instance
+  if (t.repeat) {
+    const nextDate = new Date(parseDate(t.date));
+    if (t.repeat === 'daily') nextDate.setDate(nextDate.getDate() + 1);
+    else if (t.repeat === 'weekly') nextDate.setDate(nextDate.getDate() + 7);
+    else if (t.repeat === 'monthly') nextDate.setMonth(nextDate.getMonth() + 1);
+    
+    tasks.push({
+      ...t,
+      id: genId(),
+      date: fmtDate(nextDate),
+      completed: false,
+      completedAt: null,
+      actualTime: null,
+      mood: null,
+      completionNotes: null,
+      resources: null,
+      pomoSessions: 0,
+      createdAt: new Date().toISOString()
+    });
+  }
+  
   selectedMood='';
   document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('actualTimeInput').value='';
@@ -4517,10 +4809,28 @@ function confirmComplete() {
   document.getElementById('completionResourcesInput').value='';
   saveAll(); closeModal('completeModal'); renderTasks(); renderCalendar();
   if (doNowTaskId===completeTaskId) doNowTaskId=null;
-  // Refresh goal cascade if the task was linked to a goal
-  const completedTask = tasks.find(x => x.id === completeTaskId);
-  if (completedTask && completedTask.parentId) renderGoals();
-  showToast('Task complete! 🎉');
+  
+  // Phase 5: Calculate and show impact
+  const impact = calculateTaskImpact(completeTaskId);
+  if (impact) {
+    setTimeout(() => {
+      showToast(`🎯 Impact: ${impact.impact}% toward "${impact.goalTitle}" (${impact.progress}% complete)`, 'success');
+    }, 500);
+  }
+  
+  // Update goal health and refresh if linked
+  if (t.parentId) {
+    calculateGoalHealth(t.parentId);
+    renderGoals();
+  }
+  
+  // Update analytics if on analytics view
+  const analyticsView = document.getElementById('view-analytics');
+  if (analyticsView && analyticsView.classList.contains('active')) {
+    renderAnalytics();
+  }
+  
+  showToast(t.repeat ? 'Task complete! Next instance created 🔄' : 'Task complete! 🎉');
 }
 
 function toggleSubtask(taskId, subtaskId) {
@@ -5046,6 +5356,14 @@ function updatePomoLinkedDisplay(t) {
 
 function startFocusOnTask(id) {
   const t = tasks.find(x => x.id === id); if(!t) return;
+  
+  // Suggest pomodoro for deep work tasks
+  if (t.energyType === 'deep' && !t.completed) {
+    const estimatedPomos = t.duration ? Math.ceil(t.duration / 25) : 2;
+    const message = `🧠 Deep work detected!\n\nThis task needs focus. Start a ${estimatedPomos > 1 ? estimatedPomos + '-session' : '25-minute'} pomodoro?\n\n✓ Blocks distractions\n✓ Tracks progress\n✓ Enforces breaks`;
+    if (!confirm(message)) return;
+  }
+  
   linkedPomoTaskId = id;
   document.getElementById('pomoTaskInput').value = t.title;
   updatePomoTitle();
@@ -5056,7 +5374,7 @@ function startFocusOnTask(id) {
   switchView('pomodoro');
   document.querySelectorAll('.nav-tab').forEach(b => { if((b.getAttribute('onclick')||'').includes("'pomodoro'"))b.classList.add('active'); else b.classList.remove('active'); });
   document.querySelectorAll('.mobile-tab').forEach(b => { b.classList.toggle('active',(b.dataset.view==='pomodoro')); });
-  showToast(`Starting focus on "${t.title}" 🍅`, '', 'info');
+  showToast(`Starting focus on "${t.title}" 🍅`, 'success');
 }
 
 function linkTaskToPomo(id) {
@@ -5383,6 +5701,75 @@ function renderAnalytics() {
   document.getElementById('recentTasksList').innerHTML=recent.length
     ?recent.map(t=>`<div class="recent-task-item"><div class="rtask-dot" style="background:${pCM[t.priority]}"></div><div class="rtask-title">${t.title}</div><div class="rtask-meta">${t.actualTime?t.actualTime+'m · ':''}${t.date}${t.mood?' · '+(mEmj[t.mood]||''):''}</div></div>`).join('')
     :`<div style="color:var(--text2);font-size:12.5px;padding:12px">No completed tasks yet.</div>`;
+
+  // Phase 5: Pattern Insights
+  const patterns = patternInsights.weekdayStats ? patternInsights : analyzePatterns();
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  
+  let patternHtml = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">';
+  
+  // Best day insight
+  if (patterns.bestDay !== undefined && patterns.bestDayRate > 0) {
+    patternHtml += `
+      <div style="background: rgba(52,209,132,0.1); border: 1px solid var(--green); border-radius: 8px; padding: 16px;">
+        <div style="font-size: 24px; margin-bottom: 8px;">🏆</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px;">Best Day</div>
+        <div style="font-size: 18px; font-weight: 600; color: var(--green); margin-bottom: 4px;">${dayNames[patterns.bestDay]}</div>
+        <div style="font-size: 11px; color: var(--text2);">${patterns.bestDayRate}% completion rate</div>
+      </div>
+    `;
+  }
+  
+  // Estimation accuracy
+  if (patterns.estimationBias !== undefined && patterns.estimationBias !== 0) {
+    const biasColor = Math.abs(patterns.estimationBias) > 20 ? 'var(--orange)' : 'var(--accent)';
+    const biasText = patterns.estimationBias > 0 ? 'overestimate' : 'underestimate';
+    patternHtml += `
+      <div style="background: rgba(255,186,59,0.1); border: 1px solid var(--orange); border-radius: 8px; padding: 16px;">
+        <div style="font-size: 24px; margin-bottom: 8px;">⏱️</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px;">Estimation Accuracy</div>
+        <div style="font-size: 18px; font-weight: 600; color: ${biasColor}; margin-bottom: 4px;">${Math.abs(patterns.estimationBias)}%</div>
+        <div style="font-size: 11px; color: var(--text2);">You ${biasText} task duration</div>
+      </div>
+    `;
+  }
+  
+  // Defer patterns
+  if (patterns.deferPatterns && Object.keys(patterns.deferPatterns).length > 0) {
+    const topDefer = Object.entries(patterns.deferPatterns).sort((a, b) => b[1] - a[1])[0];
+    patternHtml += `
+      <div style="background: rgba(255,78,91,0.1); border: 1px solid var(--red); border-radius: 8px; padding: 16px;">
+        <div style="font-size: 24px; margin-bottom: 8px;">↩️</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px;">Most Deferred</div>
+        <div style="font-size: 18px; font-weight: 600; color: var(--red); margin-bottom: 4px;">${topDefer[0]}</div>
+        <div style="font-size: 11px; color: var(--text2);">Deferred ${topDefer[1]} times</div>
+      </div>
+    `;
+  }
+  
+  patternHtml += '</div>';
+  
+  // Weekday breakdown
+  if (patterns.weekdayStats) {
+    patternHtml += '<div style="margin-top: 20px;"><h4 style="font-size: 13px; margin-bottom: 12px;">Weekday Completion Rates</h4><div style="display: flex; gap: 8px;">';
+    for (let i = 0; i < 7; i++) {
+      const stats = patterns.weekdayStats[i];
+      const rate = stats.total > 0 ? Math.round(stats.completed / stats.total * 100) : 0;
+      const barColor = rate >= 70 ? 'var(--green)' : rate >= 50 ? 'var(--accent)' : 'var(--orange)';
+      patternHtml += `
+        <div style="flex: 1; text-align: center;">
+          <div style="height: 80px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 8px;">
+            <div style="width: 100%; height: ${rate}%; background: ${barColor}; border-radius: 4px 4px 0 0; min-height: 4px;"></div>
+          </div>
+          <div style="font-size: 10px; color: var(--text2); margin-bottom: 2px;">${dayNames[i].slice(0, 3)}</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--text);">${rate}%</div>
+        </div>
+      `;
+    }
+    patternHtml += '</div></div>';
+  }
+  
+  document.getElementById('patternInsightsWrap').innerHTML = patternHtml;
 
   // Responsive 2-col grids
   if (window.innerWidth<=768) {
@@ -5989,6 +6376,12 @@ function renderGoals() {
           ? `<span style="font-size:10px; color:var(--text3);">${childGoalCount > 0 ? childGoalCount+' sub-goals' : ''}${childGoalCount > 0 && childTaskCount > 0 ? ', ' : ''}${childTaskCount > 0 ? childTaskCount+' tasks' : ''} linked</span>`
           : `<span style="font-size:10px; color:var(--text3); opacity:0.6;">No children yet</span>`;
 
+        // Phase 5: Goal Breakdown Assistant
+        const needsBreakdown = childTaskCount === 0 && !['lifearea'].includes(g.nodeType);
+        const breakdownBtn = needsBreakdown ? `
+          <button onclick="event.stopPropagation(); showGoalBreakdown('${g.id}')" style="width:100%; padding:10px; background:rgba(156,120,255,0.1); border:1px solid var(--purple); color:var(--purple); border-radius:8px; font-size:12px; cursor:pointer; margin-top:8px; font-weight:600; transition:all .2s;" onmouseover="this.style.background='rgba(156,120,255,0.2)'" onmouseout="this.style.background='rgba(156,120,255,0.1)'">
+            💡 Need help breaking this down?
+          </button>` : '';
         
        // Determine if this is a completed Macro-Goal (The Trophy State)
         const isMacro = ['vision', 'year', 'semester'].includes(g.nodeType);
@@ -6016,6 +6409,7 @@ function renderGoals() {
               <div style="width:${pct}%; height:100%; background:${barGradient}; border-radius:3px; transition:width 0.6s ease;"></div>
             </div>
             <div style="margin-bottom:4px;">${childInfo}</div>
+            ${breakdownBtn}
             ${krHtml}
             <div style="display:flex; gap:6px; margin-top:8px;">
               <button onclick="event.stopPropagation(); cascadeDown('${g.id}')" style="flex:1; padding:8px; background:rgba(77,168,255,0.05); border:1px dashed var(--accent); color:var(--accent); border-radius:8px; font-size:11px; cursor:pointer; transition:background .2s;" onmouseover="this.style.background='rgba(77,168,255,0.12)'" onmouseout="this.style.background='rgba(77,168,255,0.05)'">
@@ -6971,7 +7365,10 @@ if (todayEnergy) {
     document.getElementById('ritualOverlay').classList.add('hidden');
   } else {
     buildRitualStars();
-    updateRitualProgress();
+    // Initialize progress dots for 2-step ritual
+    document.getElementById('ritualProgress').innerHTML = Array.from({length:2}, (_,i) =>
+      `<div class="ritual-dot ${i===0?'active':''}"></div>`
+    ).join('');
     // Ensure overlay is visible if it was hidden by default
     document.getElementById('ritualOverlay').classList.remove('hidden');
   }
@@ -6997,15 +7394,464 @@ if (todayEnergy) {
   
   // Initialize smart features
   setupSmartTaskListeners();
+  
+  // Phase 5: Initialize smart suggestions
+  analyzePatterns();
+  generateSuggestions();
+  renderSmartSuggestions();
+  
+  // Update suggestions every hour
+  setInterval(updateSmartSuggestions, 3600000);
 
   // Keyboard shortcuts
   document.addEventListener('keydown', e => {
     if (e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
     if (e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));
     if (e.key===' '&&document.getElementById('view-pomodoro').classList.contains('active')) { e.preventDefault(); toggleTimer(); }
+    if (e.key==='q'||e.key==='Q') { e.preventDefault(); openQuickCapture(); }
 });
 
   initParticles(); // <--- Moved INSIDE the init() bracket
+}
+
+// ══════════════════════════════════════════════════════════════
+// PHASE 5: SMART SUGGESTIONS & INTELLIGENCE
+// ══════════════════════════════════════════════════════════════
+
+// 5.1 Pattern Recognition
+function analyzePatterns() {
+  const now = new Date();
+  const last30Days = Array.from({length: 30}, (_, i) => {
+    const d = new Date(now);
+    d.setDate(d.getDate() - i);
+    return fmtDate(d);
+  });
+  
+  // Weekday completion patterns
+  const weekdayStats = {0: {total: 0, completed: 0}, 1: {total: 0, completed: 0}, 2: {total: 0, completed: 0}, 
+                        3: {total: 0, completed: 0}, 4: {total: 0, completed: 0}, 5: {total: 0, completed: 0}, 6: {total: 0, completed: 0}};
+  
+  // Defer patterns by category
+  const deferPatterns = {};
+  
+  // Estimation accuracy
+  let totalEstimated = 0, totalActual = 0, estimationCount = 0;
+  
+  tasks.forEach(t => {
+    if (!t.date || !last30Days.includes(t.date)) return;
+    
+    const d = parseDate(t.date);
+    const weekday = d.getDay();
+    
+    weekdayStats[weekday].total++;
+    if (t.completed) weekdayStats[weekday].completed++;
+    
+    // Defer patterns
+    if (t.deferCount > 0 && t.category) {
+      deferPatterns[t.category] = (deferPatterns[t.category] || 0) + t.deferCount;
+    }
+    
+    // Estimation accuracy
+    if (t.completed && t.duration && t.actualTime) {
+      totalEstimated += t.duration;
+      totalActual += t.actualTime;
+      estimationCount++;
+    }
+  });
+  
+  // Calculate best day
+  let bestDay = 0, bestRate = 0;
+  Object.keys(weekdayStats).forEach(day => {
+    const stats = weekdayStats[day];
+    if (stats.total > 0) {
+      const rate = stats.completed / stats.total;
+      if (rate > bestRate) {
+        bestRate = rate;
+        bestDay = parseInt(day);
+      }
+    }
+  });
+  
+  // Estimation bias
+  const estimationBias = estimationCount > 0 ? ((totalActual - totalEstimated) / totalEstimated * 100) : 0;
+  
+  patternInsights = {
+    weekdayStats,
+    bestDay,
+    bestDayRate: Math.round(bestRate * 100),
+    deferPatterns,
+    estimationBias: Math.round(estimationBias),
+    lastAnalyzed: now.toISOString()
+  };
+  
+  localStorage.setItem('z3_pattern_insights', JSON.stringify(patternInsights));
+  return patternInsights;
+}
+
+// 5.2 Proactive Suggestions
+function generateSuggestions() {
+  smartSuggestions = [];
+  const today = fmtDate(new Date());
+  const todayTasks = tasks.filter(t => t.date === today && !t.completed);
+  const now = new Date();
+  const hour = now.getHours();
+  
+  // Morning suggestions (6am - 11am)
+  if (hour >= 6 && hour < 11 && todayEnergy) {
+    const energyMatch = {high: 'deep', medium: 'medium', low: 'light'}[todayEnergy];
+    const matchingTasks = todayTasks.filter(t => t.energyType === energyMatch).slice(0, 3);
+    
+    if (matchingTasks.length > 0) {
+      smartSuggestions.push({
+        id: 'morning-energy',
+        type: 'recommendation',
+        title: '🌅 Morning Energy Match',
+        message: `Based on your ${todayEnergy} energy, here are ${matchingTasks.length} recommended tasks:`,
+        tasks: matchingTasks.map(t => t.id),
+        action: 'view-tasks',
+        priority: 'high'
+      });
+    }
+  }
+  
+  // Afternoon goal check (12pm - 4pm)
+  if (hour >= 12 && hour < 16 && typeof goals !== 'undefined' && goals.length > 0) {
+    const stalledGoals = goals.filter(g => {
+      const health = calculateGoalHealth(g);
+      return health.score < 40 && g.nodeType !== 'lifearea';
+    });
+    
+    if (stalledGoals.length > 0) {
+      smartSuggestions.push({
+        id: 'stalled-goals',
+        type: 'warning',
+        title: '⚠️ Goals Need Attention',
+        message: `${stalledGoals.length} goal${stalledGoals.length > 1 ? 's' : ''} ${stalledGoals.length > 1 ? 'are' : 'is'} stalled. Time to adjust or recommit?`,
+        goals: stalledGoals.map(g => g.id),
+        action: 'view-goals',
+        priority: 'medium'
+      });
+    }
+  }
+  
+  // Evening planning (5pm - 9pm)
+  if (hour >= 17 && hour < 21) {
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const tomorrowDate = fmtDate(tomorrow);
+    const tomorrowTasks = tasks.filter(t => t.date === tomorrowDate && !t.completed);
+    const tomorrowDuration = tomorrowTasks.reduce((sum, t) => sum + (t.duration || 30), 0);
+    
+    if (tomorrowDuration > 480) { // More than 8 hours
+      smartSuggestions.push({
+        id: 'tomorrow-overbooked',
+        type: 'warning',
+        title: '📅 Tomorrow Looks Overbooked',
+        message: `You have ${Math.round(tomorrowDuration / 60)}h of tasks scheduled. Want to reschedule some?`,
+        date: tomorrowDate,
+        action: 'reschedule',
+        priority: 'high'
+      });
+    }
+  }
+  
+  // Pattern-based suggestions
+  const patterns = patternInsights.weekdayStats ? patternInsights : analyzePatterns();
+  const dayOfWeek = now.getDay();
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  
+  if (patterns.weekdayStats && patterns.weekdayStats[dayOfWeek]) {
+    const todayStats = patterns.weekdayStats[dayOfWeek];
+    if (todayStats.total > 5 && todayStats.completed / todayStats.total < 0.5) {
+      smartSuggestions.push({
+        id: 'weekday-pattern',
+        type: 'insight',
+        title: '📊 Productivity Pattern',
+        message: `You usually complete fewer tasks on ${dayNames[dayOfWeek]}s. Consider lighter planning today.`,
+        action: 'none',
+        priority: 'low'
+      });
+    }
+  }
+  
+  lastSuggestionCheck = now.toISOString();
+  return smartSuggestions;
+}
+
+// 5.3 Goal Breakdown Assistant
+function suggestGoalBreakdown(goalId) {
+  const goal = goals.find(g => g.id === goalId);
+  if (!goal || !goal.title) return [];
+  
+  const goalTasks = tasks.filter(t => t.parentId === goalId);
+  if (goalTasks.length > 0) return []; // Already has tasks
+  
+  // Suggest tasks based on goal type and title
+  const suggestions = [];
+  const title = goal.title.toLowerCase();
+  
+  // Pattern matching for common goal types
+  if (title.includes('learn') || title.includes('study') || title.includes('master')) {
+    suggestions.push(
+      { title: `Research ${goal.title}`, energyType: 'medium', duration: 60 },
+      { title: `Practice ${goal.title} basics`, energyType: 'deep', duration: 120 },
+      { title: `Build project using ${goal.title}`, energyType: 'deep', duration: 180 },
+      { title: `Review and consolidate ${goal.title}`, energyType: 'medium', duration: 60 }
+    );
+  } else if (title.includes('write') || title.includes('article') || title.includes('blog')) {
+    suggestions.push(
+      { title: 'Research and gather sources', energyType: 'medium', duration: 90 },
+      { title: 'Create outline', energyType: 'medium', duration: 30 },
+      { title: 'Write first draft', energyType: 'deep', duration: 120 },
+      { title: 'Edit and refine', energyType: 'medium', duration: 60 },
+      { title: 'Publish and promote', energyType: 'light', duration: 30 }
+    );
+  } else if (title.includes('build') || title.includes('create') || title.includes('develop')) {
+    suggestions.push(
+      { title: 'Design and plan architecture', energyType: 'deep', duration: 90 },
+      { title: 'Implement core features', energyType: 'deep', duration: 240 },
+      { title: 'Add tests', energyType: 'medium', duration: 120 },
+      { title: 'Review and refactor', energyType: 'medium', duration: 90 },
+      { title: 'Deploy and document', energyType: 'light', duration: 60 }
+    );
+  } else {
+    // Generic breakdown
+    suggestions.push(
+      { title: `Plan approach for ${goal.title}`, energyType: 'medium', duration: 30 },
+      { title: `Work on ${goal.title} - Part 1`, energyType: 'deep', duration: 120 },
+      { title: `Work on ${goal.title} - Part 2`, energyType: 'deep', duration: 120 },
+      { title: `Review progress on ${goal.title}`, energyType: 'light', duration: 30 }
+    );
+  }
+  
+  return suggestions;
+}
+
+function applyGoalBreakdown(goalId, suggestions) {
+  const goal = goals.find(g => g.id === goalId);
+  if (!goal) return;
+  
+  const today = fmtDate(new Date());
+  suggestions.forEach((sug, i) => {
+    const taskDate = new Date();
+    taskDate.setDate(taskDate.getDate() + i);
+    
+    tasks.push({
+      id: genId(),
+      title: sug.title,
+      parentId: goalId,
+      energyType: sug.energyType || 'medium',
+      duration: sug.duration || 60,
+      priority: 'medium',
+      date: fmtDate(taskDate),
+      subtasks: [],
+      completed: false,
+      deferCount: 0,
+      createdAt: new Date().toISOString()
+    });
+  });
+  
+  saveAll();
+  renderTasks();
+  showToast(`Created ${suggestions.length} tasks for "${goal.title}" 🎯`, 'success');
+}
+
+// 5.4 Time Blocking Suggestions
+function suggestTimeBlocks() {
+  const patterns = patternInsights.weekdayStats ? patternInsights : analyzePatterns();
+  const suggestions = [];
+  
+  // Suggest blocking best work time for deep work
+  if (patterns.bestDay !== undefined) {
+    suggestions.push({
+      type: 'time-block',
+      title: '⏰ Block Your Best Time',
+      message: 'Your best work time is 9-11am. Block it for deep work?',
+      startTime: '09:00',
+      endTime: '11:00',
+      energyType: 'deep'
+    });
+  }
+  
+  return suggestions;
+}
+
+// 5.5 Impact Tracking
+function calculateTaskImpact(taskId) {
+  const task = tasks.find(t => t.id === taskId);
+  if (!task || !task.completed || !task.parentId) return null;
+  
+  const goal = goals.find(g => g.id === task.parentId);
+  if (!goal) return null;
+  
+  const goalTasks = tasks.filter(t => t.parentId === goal.id);
+  const completedTasks = goalTasks.filter(t => t.completed);
+  
+  const impact = goalTasks.length > 0 ? (1 / goalTasks.length * 100) : 0;
+  
+  return {
+    goalTitle: goal.title,
+    impact: Math.round(impact),
+    progress: Math.round(completedTasks.length / goalTasks.length * 100)
+  };
+}
+
+// 5.6 Habit-Productivity Correlation (Placeholder for future)
+function analyzeHabitCorrelation() {
+  // This would require more data collection over time
+  // For now, return empty correlations
+  return {};
+}
+
+// Display suggestions in UI
+function renderSmartSuggestions() {
+  const container = document.getElementById('smartSuggestionsContainer');
+  if (!container) return;
+  
+  if (smartSuggestions.length === 0) {
+    container.style.display = 'none';
+    return;
+  }
+  
+  container.style.display = 'block';
+  container.innerHTML = smartSuggestions.map(sug => {
+    const icon = sug.type === 'warning' ? '⚠️' : sug.type === 'insight' ? '💡' : '✨';
+    const bgColor = sug.priority === 'high' ? 'rgba(255,78,91,0.1)' : sug.priority === 'medium' ? 'rgba(255,186,59,0.1)' : 'rgba(77,168,255,0.1)';
+    
+    return `
+      <div class="smart-suggestion" style="background: ${bgColor}; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: start;">
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 13px; margin-bottom: 4px;">${icon} ${sanitizeHTML(sug.title)}</div>
+            <div style="font-size: 12px; color: var(--text2);">${sanitizeHTML(sug.message)}</div>
+          </div>
+          <button class="btn-secondary" style="padding: 4px 10px; font-size: 11px;" onclick="dismissSuggestion('${sug.id}')">✕</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function dismissSuggestion(id) {
+  smartSuggestions = smartSuggestions.filter(s => s.id !== id);
+  renderSmartSuggestions();
+}
+
+// Check and update suggestions periodically
+function updateSmartSuggestions() {
+  const now = new Date();
+  const lastCheck = lastSuggestionCheck ? new Date(lastSuggestionCheck) : null;
+  
+  // Update suggestions every hour
+  if (!lastCheck || (now - lastCheck) > 3600000) {
+    generateSuggestions();
+    renderSmartSuggestions();
+  }
+}
+
+// Helper: Calculate goal health score
+function calculateGoalHealth(goal) {
+  const goalTasks = tasks.filter(t => t.parentId === goal.id);
+  const completedTasks = goalTasks.filter(t => t.completed);
+  
+  if (goalTasks.length === 0) {
+    return { score: 0, status: 'stalled', reason: 'No tasks' };
+  }
+  
+  // Check recent activity (last 7 days)
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  const recentActivity = goalTasks.some(t => {
+    const taskDate = parseDate(t.date);
+    return taskDate >= sevenDaysAgo;
+  });
+  
+  // Calculate progress rate
+  const progressRate = completedTasks.length / goalTasks.length;
+  
+  // Calculate score (0-100)
+  let score = progressRate * 60; // 60 points for progress
+  if (recentActivity) score += 40; // 40 points for recent activity
+  
+  const status = score >= 70 ? 'healthy' : score >= 40 ? 'at-risk' : 'stalled';
+  
+  return { score: Math.round(score), status, progressRate, recentActivity };
+}
+
+// Show goal breakdown modal
+function showGoalBreakdown(goalId) {
+  const goal = goals.find(g => g.id === goalId);
+  if (!goal) return;
+  
+  const suggestions = suggestGoalBreakdown(goalId);
+  if (suggestions.length === 0) {
+    showToast('This goal already has tasks!', 'info');
+    return;
+  }
+  
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay open';
+  modal.id = 'breakdownModal';
+  modal.innerHTML = `
+    <div class="modal-card" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3>💡 Goal Breakdown Assistant</h3>
+        <button class="modal-close" onclick="closeModal('breakdownModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: rgba(156,120,255,0.1); border: 1px solid var(--purple); border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+          <div style="font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px;">
+            ${goal.icon || '🎯'} ${sanitizeHTML(goal.title)}
+          </div>
+          <div style="font-size: 12px; color: var(--text2);">
+            Based on your goal, here are ${suggestions.length} suggested tasks to get you started:
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          ${suggestions.map((sug, i) => `
+            <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
+              <div style="display: flex; align-items: start; gap: 10px;">
+                <div style="font-size: 18px; color: var(--text3); flex-shrink: 0;">${i + 1}</div>
+                <div style="flex: 1;">
+                  <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px;">
+                    ${sanitizeHTML(sug.title)}
+                  </div>
+                  <div style="display: flex; gap: 8px; font-size: 11px;">
+                    <span class="task-tag energy-${sug.energyType}">${{deep:'🧠',medium:'💡',light:'☁️'}[sug.energyType]} ${sug.energyType}</span>
+                    <span class="task-tag time">~${sug.duration}m</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        
+        <div style="margin-top: 20px; padding: 12px; background: rgba(77,168,255,0.1); border-radius: 8px; font-size: 11px; color: var(--text2);">
+          💡 <strong>Tip:</strong> These tasks will be spread across the next ${suggestions.length} days, starting today.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeModal('breakdownModal')">Cancel</button>
+        <button class="btn-primary" onclick="applyGoalBreakdownFromModal('${goalId}')">Create ${suggestions.length} Tasks</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+
+function applyGoalBreakdownFromModal(goalId) {
+  const suggestions = suggestGoalBreakdown(goalId);
+  applyGoalBreakdown(goalId, suggestions);
+  closeModal('breakdownModal');
+  
+  // Switch to tasks view to show new tasks
+  setTimeout(() => {
+    switchView('tasks');
+    document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(b => { if(b.textContent.includes('Tasks')) b.classList.add('active'); });
+  }, 500);
 }
 
 // ══════════════════════════════════════════════════════════════

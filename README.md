@@ -45,20 +45,22 @@ When you first open Zenith, you'll see:
 
 ### 🌅 Morning Ritual
 
-**Purpose:** Start your day with intention and clarity.
+**Purpose:** Start your day with intention and clarity in under 30 seconds.
 
 **Steps:**
 1. **Energy Check** — How do you feel? (High/Medium/Low)
-2. **Carry-over** — Which unfinished tasks from yesterday matter today?
-3. **Intentions** — What are your top 3 priorities?
-4. **Gratitude** — One thing you're grateful for
-5. **Summary** — Review and begin your day
+2. **Intentions** — What are your top 3 priorities today?
+
+**What Changed:**
+- **Simplified from 5 steps to 2** — Removed carryover, gratitude, and summary steps
+- **Auto-carry** — Incomplete tasks from yesterday automatically move to today
+- **Faster** — Takes only 30 seconds (down from 2-3 minutes)
 
 **Tips:**
 - The ritual appears once per day
 - Your energy level determines which tasks are suggested
 - You can skip the ritual, but it's recommended for best results
-- Takes only 2-3 minutes
+- Press **Q** key anytime to quick-add a task
 
 ---
 
@@ -66,20 +68,32 @@ When you first open Zenith, you'll see:
 
 #### Creating Tasks
 
+**Quick Capture (Fastest):**
+- Press **Q** key anywhere in the app
+- Or click the floating **+** button (bottom right)
+- Enter title and press Enter
+- Smart defaults applied: today's date, medium priority/energy
+
+**Full Task Creation:**
 1. Click **"+ Add Task"** button
-2. Fill in:
+2. **First: Link to Goal** 🎯
+   - "Which goal does this support?"
+   - Shows Quarterly/Monthly/Weekly goals only
+   - Warning if skipped: "Orphan tasks 40% less likely to complete"
+3. Fill in details:
    - **Title** (required) — What needs to be done?
    - **Description** — Additional context
-   - **Priority** — Critical / High / Medium / Low
-   - **Energy Required** — Deep Work / Medium / Light
    - **Date** — When to do it
    - **Category** — Work, Study, Personal, etc.
+   - **Priority** — Critical / High / Medium / Low
+   - **Energy Required** — Deep Work / Medium / Light
    - **Time** — Start and end time (optional)
    - **Duration** — Estimated minutes
-   - **Link to Goal** — Connect to a larger objective
+   - **Repeat** — Daily / Weekly / Monthly (auto-creates next instance)
+   - **Blocked By** — Select a task that must be completed first
    - **Subtasks** — Break it down into steps
 
-3. Click **"Save Task"**
+4. Click **"Save Task"**
 
 #### Smart Features
 
@@ -97,6 +111,19 @@ When you first open Zenith, you'll see:
 - Deep Work tasks are highlighted when you have high energy
 - Light tasks are suggested when energy is low
 - Medium tasks work for any energy level
+
+**Task Dependencies:**
+- Use "Blocked By" to create task dependencies
+- Blocked tasks appear grayed out with 🔒 badge
+- Auto-unlock when blocker is completed
+- Prevents starting tasks before prerequisites are done
+
+**Goal Linking:**
+- Every task should support a goal
+- Goal dropdown is first field in task modal
+- Warning shows for orphan tasks (no goal)
+- Only shows active goals (Quarterly/Monthly/Weekly)
+- Goal badge shows on task cards
 
 #### Task Actions
 
@@ -124,19 +151,21 @@ When you first open Zenith, you'll see:
 
 #### Planning Structure
 
-Zenith uses a 4-level hierarchy:
+Zenith uses a 4-level hierarchy (Life Areas are hidden from daily workflow):
 
 ```
-Life Areas (Timeless)
+Life Areas (Background - for organization only)
     ↓
-Quarterly OKRs (12 weeks)
+Quarterly OKRs (12 weeks) ← Shown in task dropdown
     ↓
-Monthly Themes (4 weeks)
+Monthly Themes (4 weeks) ← Shown in task dropdown
     ↓
-Weekly Sprints (7 days)
+Weekly Sprints (7 days) ← Shown in task dropdown
     ↓
 Daily Tasks
 ```
+
+**Note:** Life Areas exist for planning but are hidden from task creation to reduce cognitive load.
 
 #### Life Areas
 
@@ -338,6 +367,91 @@ Adjust performance based on your device:
 
 ## 🧠 Intelligent Features
 
+### Phase 5: Smart Suggestions & Intelligence (NEW!)
+
+Zenith now learns from your behavior and proactively helps you work smarter.
+
+#### 1. Pattern Recognition
+
+**What it does:**
+- Analyzes your last 30 days of task data
+- Identifies your best productivity day of the week
+- Tracks which task categories you tend to defer
+- Calculates your estimation accuracy (over/underestimation bias)
+
+**How it helps:**
+- Shows insights like "You usually complete fewer tasks on Mondays"
+- Helps you plan lighter on historically difficult days
+- Improves your time estimation over time
+
+**Example:**
+```
+Pattern Insight: "You typically underestimate task duration by 25%"
+Recommendation: "Add buffer time to your estimates"
+```
+
+#### 2. Proactive Suggestions
+
+**What it does:**
+- Generates time-sensitive suggestions throughout the day
+- Morning (6-11am): Recommends energy-matched tasks
+- Afternoon (12-4pm): Warns about stalled goals
+- Evening (5-9pm): Alerts if tomorrow is overbooked
+
+**How it helps:**
+- Surfaces the right tasks at the right time
+- Keeps goals on track with timely reminders
+- Prevents overbooking before it happens
+
+**Example:**
+```
+Morning: "🌅 Based on your high energy, here are 3 recommended deep work tasks"
+Afternoon: "⚠️ 2 goals are stalled. Time to adjust or recommit?"
+Evening: "📅 Tomorrow has 10h of tasks scheduled. Want to reschedule some?"
+```
+
+#### 3. Goal Breakdown Assistant
+
+**What it does:**
+- Detects goals with no actionable tasks
+- Analyzes goal title to understand intent
+- Suggests 3-5 specific tasks to achieve the goal
+- Uses templates for common goal types (learning, writing, building)
+
+**How it helps:**
+- Eliminates "blank page syndrome" when starting a goal
+- Provides structured approach based on best practices
+- Saves time planning task breakdowns
+
+**Example:**
+```
+Goal: "Learn React Hooks"
+Suggestions:
+1. Research React Hooks documentation (60min, medium)
+2. Practice useState and useEffect basics (120min, deep)
+3. Build small project using hooks (180min, deep)
+4. Review and consolidate learnings (60min, medium)
+```
+
+#### 4. Impact Tracking
+
+**What it does:**
+- Calculates how much each completed task contributed to its goal
+- Shows percentage impact: "This task moved your goal forward by 15%"
+- Identifies orphan tasks (completed but no goal progress)
+
+**How it helps:**
+- Validates that your work is meaningful
+- Highlights low-value busy work
+- Encourages goal-aligned task creation
+
+**Example:**
+```
+Task: "Implement authentication"
+Impact: "Contributed 20% to 'Ship MVP' goal"
+Progress: "Goal is now 60% complete"
+```
+
 ### How Zenith Learns
 
 #### 1. Task Duration Learning
@@ -523,6 +637,7 @@ Weekly Report:
 
 | Shortcut | Action |
 |----------|--------|
+| `Q` | Quick add task (opens quick capture) |
 | `Space` | Play/Pause Pomodoro (when in Focus view) |
 | `Escape` | Close any open modal or exit Zen mode |
 | `Enter` | Log distraction (when in distraction input) |
@@ -767,6 +882,15 @@ MIT License — Free to use, modify, and distribute.
 ---
 
 ## 🎯 Version History
+
+### v9.5.0 (Current - Phase 5 Complete ✅)
+- ✅ Pattern recognition with analytics visualization
+- ✅ Proactive suggestions (morning/afternoon/evening)
+- ✅ Goal breakdown assistant with modal UI
+- ✅ Impact tracking with toast notifications
+- ✅ Time blocking framework (ready for UI)
+- ✅ Habit-productivity correlation framework
+- ✅ All 5 phases of improvement plan complete!
 
 ### v9.0.0 (Current)
 - ✅ Restructured planning hierarchy (4 levels)
